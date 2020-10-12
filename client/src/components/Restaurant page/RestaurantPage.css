@@ -1,0 +1,26 @@
+.attribute {
+  justify-content: left;
+  display: flex;
+  flex-direction: row;
+}
+
+.font {
+  font-weight: bold;
+}
+
+.main {
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  flex: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.nameAndStars {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
