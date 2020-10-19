@@ -1,6 +1,7 @@
 import React from "react";
 import "./RestaurantPage.css";
 import star from "../../images/star.svg";
+import location from "../../images/location.svg";
 
 interface restaurant {
   name: string;
@@ -15,11 +16,11 @@ interface restaurant {
 function RestaurantPage() {
   const restaurant: restaurant = {
     name: "Olivia",
-    stars: 3,
+    stars: 2,
     region: "Norway",
     city: "Trondheim",
     cuisine: "Italian",
-    price: 2,
+    price: 3,
     url: "https://oliviarestauranter.no/#!/home",
   };
 
@@ -58,11 +59,15 @@ function RestaurantPage() {
         </div>
         <div className="info">
           <div className="attribute">
-            <div className="font">Region: </div>
+            <div className="font">
+              <img src={location} width="20px" height="20px"></img>
+            </div>
             {restaurant.region}
           </div>
           <div className="attribute">
-            <div className="font">City: </div>
+            <div className="font">
+              <img src={location} width="20px" height="20px"></img>
+            </div>
             {restaurant.city}
           </div>
           <div className="attribute">
@@ -71,7 +76,11 @@ function RestaurantPage() {
           </div>
           <div className="attribute">
             <div className="font">Price: </div>
-            {restaurant.price}
+            {restaurant.price === 1 ? <div>$</div> : ""}
+            {restaurant.price === 2 ? <div>$$</div> : ""}
+            {restaurant.price === 3 ? <div>$$$</div> : ""}
+            {restaurant.price === 4 ? <div>$$$$</div> : ""}
+            {restaurant.price === 5 ? <div>$$$$$</div> : ""}
           </div>
           <div className="attribute">
             <a href={restaurant.url}>Hjemmeside</a>

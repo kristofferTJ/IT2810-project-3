@@ -16,6 +16,7 @@ const reducer = combineReducers({
 const store: Store & {
   dispatch: DispatchType
 } = createStore(reducer, applyMiddleware(thunk))
+import 'materialize-css/dist/css/materialize.min.css';
 
 ReactDOM.render(
   <React.StrictMode>
