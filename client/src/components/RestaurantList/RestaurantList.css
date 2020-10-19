@@ -3,8 +3,19 @@
     flex-direction: row;
     justify-content: space-evenly;
     width: 80%;
-    border: solid;
+    border: solid 0.5px;
     background-color: white;
+}
+
+.infodiv{
+    display: flex;
+    flex-direction: column;
+}
+
+.infocontainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .imagediv{
