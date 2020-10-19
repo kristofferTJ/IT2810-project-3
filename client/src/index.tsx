@@ -7,16 +7,16 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import {reviewReducer} from './store/reducer';
 import { createStore, applyMiddleware, Store, combineReducers } from 'redux';
+import 'materialize-css/dist/css/materialize.min.css';
+
 
 const reducer = combineReducers({
   reviews:reviewReducer
 })
 
-
 const store: Store & {
   dispatch: DispatchType
 } = createStore(reducer, applyMiddleware(thunk))
-import 'materialize-css/dist/css/materialize.min.css';
 
 ReactDOM.render(
   <React.StrictMode>

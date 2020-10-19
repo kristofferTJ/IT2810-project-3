@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './RestaurantList.css';
-import RestaurantPage from '../Restaurant page/RestaurantPage';
+import RestaurantPage from '../Restaurant page/RestaurantPage2';
 // import axios from 'axios';
 // import { render } from '@testing-library/react';
 // import { ListenOptions } from 'net';
