@@ -24,40 +24,40 @@ router.get('/', async (req: any, res: Response) => {
   }
 });
 
-router.post('/', async (req: Express.Request, res: Response) => {
-  let csvData: any = [];
-  let csvStream = fastcsv
-    .parse()
-    .on('data', function (data: any) {
-      csvData.push(
-        new Restaurant({
-          name: data[0],
-          year: data[1],
-          latitude: data[2],
-          longitude: data[3],
-          city: data[4],
-          region: data[5],
-          zipCode: data[6],
-          cuisine: data[7],
-          price: data[8],
-          url: data[9],
-          ratings: [],
-          comments: [],
-          stars: 3,
-        })
-      );
-    })
-    .on('end', function () {
-      // remove the first line: header
-      csvData.shift();
-      Restaurant.insertMany(csvData);
+// router.post('/', async (req: Express.Request, res: Response) => {
+//   let csvData: any = [];
+//   let csvStream = fastcsv
+//     .parse()
+//     .on('data', function (data: any) {
+//       csvData.push(
+//         new Restaurant({
+//           name: data[0],
+//           year: data[1],
+//           latitude: data[2],
+//           longitude: data[3],
+//           city: data[4],
+//           region: data[5],
+//           zipCode: data[6],
+//           cuisine: data[7],
+//           price: data[8],
+//           url: data[9],
+//           ratings: [],
+//           comments: [],
+//           stars: 3,
+//         })
+//       );
+//     })
+//     .on('end', function () {
+//       // remove the first line: header
+//       csvData.shift();
+//       Restaurant.insertMany(csvData);
 
-      console.log('heihei');
-    });
+//       console.log('heihei');
+//     });
 
-  stream.pipe(csvStream);
-  res.send('dette gikk bra');
-});
+//   stream.pipe(csvStream);
+//   res.send('dette gikk bra');
+// });
 
 router.put('/:restaurant_id', auth, async (req: any, res: Response) => {
   const { rating } = req.body;
