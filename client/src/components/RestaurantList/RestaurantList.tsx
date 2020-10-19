@@ -9,25 +9,31 @@ import RestaurantPage from '../Restaurant page/RestaurantPage';
 export default function RestaurantList() {
   return(
     <div className="container">
+      <div>
+       <input className='searchbar'
+                placeholder='Search for restaurants . . .'>
+      </input>
+    </div>
       <div className="post card">
         <div className="card-content">
         <span className="card-title">RestaurantName</span>
         <div className="card-action">
-        <p>Cuisine</p><p>Price</p>
-        <p>Region</p><p>City</p>
+          
+          <p>Cuisine</p><p>Price</p>
+          <p>Region <i className="material-icons">location_on</i></p><p>City</p>
         </div>
         </div>
       </div>
     </div>
  
-
-  /* state = {
+/*
+    state = {
     restaurants: []
   }
 
   //skal dette skje i redux?
     componentDidMount(){
-    axios.get('https://...')
+    axios.get('https://')
       .then(res => {
         console.log(res)
         this.setState({
@@ -58,8 +64,8 @@ export default function RestaurantList() {
         <h4 className="center">Home</h4>
         {restaurantList}
       </div>
-    ) */
-  
+    ) 
+  */
 
   );
 };
