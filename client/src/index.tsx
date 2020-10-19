@@ -5,10 +5,15 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import reducer from './store/reducer';
-import { createStore, applyMiddleware, Store } from 'redux';
+import {reviewReducer} from './store/reducer';
+import { createStore, applyMiddleware, Store, combineReducers } from 'redux';
 
-const store: Store<ReviewState, ReviewAction> & {
+const reducer = combineReducers({
+  reviews:reviewReducer
+})
+
+
+const store: Store & {
   dispatch: DispatchType
 } = createStore(reducer, applyMiddleware(thunk))
 

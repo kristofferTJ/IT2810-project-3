@@ -1,4 +1,5 @@
-import * as actipnTypes from './actionType';
+import * as actionTypes from './actionType';
+import {Actions} from './actionCreators';
 
 const initialState: ReviewState = {
     reviews: [{
@@ -12,12 +13,12 @@ const initialState: ReviewState = {
 
 let id: number = 1;
 
-const reducer  = (
+export const reviewReducer  = (
     state: ReviewState = initialState,
     action: ReviewAction
 ): ReviewState => {
     switch(action.type) {
-        case actipnTypes.ADD_REVIEW:
+        case actionTypes.ADD_REVIEW:
             const newReview: Review = {
                 id: id,
                 stars: action.review.stars,
@@ -33,4 +34,8 @@ const reducer  = (
     return state
 }
 
-export default reducer
+function RestaurantReducer(state: IRestaurant[]=[], action: Actions){
+    switch(action.type){
+        case "GET_RESTAURANTS":         
+    }
+}

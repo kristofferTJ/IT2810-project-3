@@ -1,1 +1,2 @@
 export const ADD_REVIEW = "ADD_REVIEW";
+export const GET_RESTAURANTS = "GET_RESTAURANTS";

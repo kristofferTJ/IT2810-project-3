@@ -11,9 +11,11 @@ import { AddReview } from './components/Add review/addReview';
 
 function App() {
   const reviews: readonly Review[] = useSelector(
-    (state: ReviewState) => state.reviews,
+    (state: any) => state.reviews.reviews,
     shallowEqual
   )
+
+  console.log("reviews: " + JSON.stringify(reviews))
 
   const dispatch: Dispatch<any> = useDispatch()
 
@@ -25,7 +27,7 @@ function App() {
     <div className="App">
       <Header></Header>
       <AddReview saveReview={saveReview}></AddReview>
-      {reviews.map((review: Review) => (
+      {reviews?.map((review: Review) => (
         <Review
         key={review.id}
         review={review}

@@ -15,3 +15,21 @@ type ReviewAction = {
 };
 
 type DispatchType = (args: ReviewAction) => ReviewAction;
+
+interface IRestaurant{
+  name: string;
+  year: Number;
+  latitude: Number;
+  longitude: Number;
+  city: string;
+  region: string;
+  zipCode: Number;
+  cuisine: string;
+  price: string;
+  url: string;
+};
+
+type RestaurantsAction = {
+  type: string;
+}
+

@@ -9,6 +9,12 @@ export function addReview(review: Review) {
 
 }
 
+export function getRestaurants(){
+  return {
+    type: "GET_RESTAURANTS"
+  } as const;
+}
+
 export function simulateHttpRequest(action: ReviewAction) {
   return (dispatch: DispatchType) => {
     setTimeout(() => {
@@ -16,3 +22,5 @@ export function simulateHttpRequest(action: ReviewAction) {
     }, 500);
   };
 }
+
+export type Actions = ReturnType<typeof getRestaurants>;
