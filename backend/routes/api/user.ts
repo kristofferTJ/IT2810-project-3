@@ -37,7 +37,6 @@ router.post(
           .json({ errors: [{ msg: 'Brukeren eksisterer allerede ' }] });
       }
 
-      //Fjernet name herfra
       user = new User({
         name,
         email,

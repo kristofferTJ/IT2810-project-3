@@ -1,18 +1,10 @@
 import express, { Request, Response, NextFunction } from 'express';
+import { Types } from 'mongoose';
 import { IUser } from '../models/User';
 const jwt = require('jsonwebtoken');
 const config = require('config');
 
-declare module 'express-serve-static-core' {
-  interface Request {
-    user: IUser;
-  }
-  interface Response {
-    myField?: string;
-  }
-}
-
-module.exports = function (req: Request, res: Response, next: NextFunction) {
+module.exports = function (req: any, res: Response, next: NextFunction) {
   // Get token from header
   const token = req.header('x-auth-token');
 

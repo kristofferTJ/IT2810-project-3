@@ -1,6 +1,16 @@
-import mongoose, { Schema, model, Document, Model } from 'mongoose';
+import mongoose, { Schema, model, Document, Model, Types } from 'mongoose';
 
 //name,year,latitude,longitude,city,region,zipCode,cuisine,price,url
+
+export interface IRating extends Document {
+  user: Types.ObjectId;
+  rating: Number;
+}
+
+export interface IComment extends Document {
+  user: Types.ObjectId;
+  comment: String;
+}
 
 export interface IRestaurant extends Document {
   name: string;
@@ -9,20 +19,21 @@ export interface IRestaurant extends Document {
   longitude: Number;
   city: string;
   region: string;
-  zipCode: Number;
+  zipCode: Number | String;
   cuisine: string;
   price: string;
   url: string;
+  stars: Number;
+  ratings: IRating[];
+  comments: IComment[];
 }
 
 const RestaurantSchema = new Schema({
   name: {
     type: String,
-    required: true,
   },
   year: {
     type: String,
-    required: true,
   },
   latitude: {
     type: Number,
@@ -32,27 +43,48 @@ const RestaurantSchema = new Schema({
   },
   city: {
     type: String,
-    required: true,
   },
   region: {
     type: String,
-    require: true,
   },
   zipCode: {
-    type: Number,
-    required: true,
+    type: String,
+    content: Schema.Types.Mixed,
   },
   cuisine: {
-    type: Number,
-    required: true,
+    type: String,
   },
   price: {
-    type: Number,
-    required: true,
+    type: String,
   },
   url: {
     type: String,
   },
+  stars: {
+    type: Number,
+  },
+  ratings: [
+    {
+      user: {
+        type: Schema.Types.ObjectId,
+        ref: 'user',
+      },
+      rating: {
+        type: Number,
+      },
+    },
+  ],
+  comments: [
+    {
+      user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+      },
+      comment: {
+        type: String,
+      },
+    },
+  ],
 });
 
 export const Restaurant = mongoose.model<IRestaurant>(

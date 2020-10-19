@@ -9,19 +9,19 @@ const { check, validationResult } = require('express-validator');
 
 import { User } from '../../models/User';
 
-declare module 'express-serve-static-core' {
-  interface Request {
-    user: IUser;
-  }
-  interface Response {
-    myField?: string;
-  }
-}
+// declare module 'express-serve-static-core' {
+//   interface Request {
+//     user: IUser;
+//   }
+//   interface Response {
+//     myField?: string;
+//   }
+// }
 
 // @route   GET api/auth
 // @desc    GET user by token
 // @access  Private
-router.get('/', auth, async (req: Request, res: Response) => {
+router.get('/', auth, async (req: any, res: Response) => {
   try {
     const user = await User.findById(req.user.id).select('-password');
     res.json(user);
@@ -40,7 +40,7 @@ router.post(
     check('email', 'Emailen er ikke gyldig!').isEmail(),
     check('password', 'Passordfeltet kan ikke være tomt').exists(),
   ],
-  async (req: Request, res: Response) => {
+  async (req: any, res: Response) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
