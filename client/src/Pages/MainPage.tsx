@@ -7,11 +7,16 @@ import "../App.css";
 function MainPage() {
   return (
     <div className="App">
+    <div className="App">
       <Header></Header>
       <div className="content">
-        <Filtermenu></Filtermenu>
-        <Restaurantcontainer></Restaurantcontainer>
+          <Filtermenu></Filtermenu>
+          <div className="container">
+            <RestaurantList></RestaurantList>
+            <Pagination></Pagination>
+          </div>
       </div>
+    </div>
     </div>
   );
 }
