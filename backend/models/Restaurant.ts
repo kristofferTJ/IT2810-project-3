@@ -1,4 +1,4 @@
-import mongoose, { Schema, model, Document, Model, Types } from 'mongoose';
+import mongoose, { Schema, Document, Types } from 'mongoose';
 
 //name,year,latitude,longitude,city,region,zipCode,cuisine,price,url
 

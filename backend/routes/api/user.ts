@@ -30,7 +30,6 @@ router.post(
     // See if user exists
     try {
       let user = await User.findOne({ email });
-
       if (user) {
         return res
           .status(400)
@@ -44,15 +43,12 @@ router.post(
       });
 
       // Encrypt password
-
       const salt = await bcrypt.genSalt(10);
-
       user.password = await bcrypt.hash(password, salt);
 
       await user.save();
 
       // Return jsonwebtoken
-
       const payload = {
         user: {
           id: user.id,
@@ -75,6 +71,9 @@ router.post(
   }
 );
 
+// @route   GET api/users
+// @desc    Get 20 users
+// @access  Pulic
 router.get('/', async (req: Request, res: Response) => {
   try {
     const users = await User.find().limit(20);
@@ -88,4 +87,5 @@ router.get('/', async (req: Request, res: Response) => {
     res.status(500).send('Server Error');
   }
 });
+
 module.exports = router;
