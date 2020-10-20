@@ -1,7 +1,9 @@
+import axios from "axios";
 import * as actionTypes from "./actionType";
+import * as types from '../type';
 
-export function addReview(review: Review) {
-  const action: ReviewAction = {
+export function addReview(review: types.Review) {
+  const action: types.ReviewAction = {
     type: actionTypes.ADD_REVIEW,
     review,
   };
@@ -9,18 +11,29 @@ export function addReview(review: Review) {
 
 }
 
-export function getRestaurants(){
-  return {
-    type: "GET_RESTAURANTS"
-  } as const;
+export const getRestaurants = () => (dispatch: Function) => {
+  dispatch(setItemsLoading());
+  axios.get('http://localhost:8000/api/restaurant/').then(res => 
+    dispatch({
+      type: actionTypes.GET_RESTAURANTS,
+      payload: res.data
+    }
+    )
+  )
 }
 
-export function simulateHttpRequest(action: ReviewAction) {
-  return (dispatch: DispatchType) => {
+export const setItemsLoading = () => {
+  return {
+    type: "ITEMS_LOADING"
+  }
+}
+
+export function simulateHttpRequest(action: types.ReviewAction) {
+  return (dispatch: types.DispatchType) => {
     setTimeout(() => {
       dispatch(action);
     }, 500);
   };
 }
 
-export type Actions = ReturnType<typeof getRestaurants>;
+// export type Actions = ReturnType<typeof getRestaurants>;

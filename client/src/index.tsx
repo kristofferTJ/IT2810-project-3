@@ -5,13 +5,16 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import {reviewReducer} from './store/reducer';
+import {reviewReducer } from './store/reducer';
+import restaurantReducer from './store/reducer';
 import { createStore, applyMiddleware, Store, combineReducers } from 'redux';
 import 'materialize-css/dist/css/materialize.min.css';
+import { DispatchType } from './type';
 
 
 const reducer = combineReducers({
-  reviews:reviewReducer
+  reviews:reviewReducer,
+  restaurants:restaurantReducer
 })
 
 const store: Store & {
@@ -31,3 +34,5 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+export default reducer;

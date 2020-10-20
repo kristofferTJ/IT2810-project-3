@@ -1,30 +1,30 @@
-import React from 'react';
+import React, { Dispatch } from 'react';
 import './RestaurantList.css';
-import RestaurantPage from '../Restaurant page/RestaurantPage2';
-// import axios from 'axios';
-// import { render } from '@testing-library/react';
-// import { ListenOptions } from 'net';
+import { useDispatch } from 'react-redux';
+import * as types from '../../type';
 
+type Props = {
+  restaurant: types.IRestaurant
+}
 
-export default function RestaurantList() {
+export const RestaurantList: React.FC<Props> = ({ restaurant }) => {
+  const dispatch: Dispatch<any> = useDispatch()
+
   return(
-    <div className="container">
-      <div>
-       <input className='searchbar'
-                placeholder='Search for restaurants . . .'>
-      </input>
+    <div className="post card">
+    <div className="card-content">
+    <span className="card-title">{restaurant.name}</span>
+    <div className="card-action">
+      <p>{restaurant.cuisine}</p><p>Price</p>
+      <p>Region <i className="material-icons">location_on</i></p><p>City</p>
     </div>
-      <div className="post card">
-        <div className="card-content">
-        <span className="card-title">RestaurantName</span>
-        <div className="card-action">
-          
-          <p>Cuisine</p><p>Price</p>
-          <p>Region <i className="material-icons">location_on</i></p><p>City</p>
-        </div>
-        </div>
-      </div>
     </div>
+  </div>
+
+  )
+}
+
+
  
 /*
     state = {
@@ -67,7 +67,4 @@ export default function RestaurantList() {
     ) 
   */
 
-  );
-};
-
-
+  

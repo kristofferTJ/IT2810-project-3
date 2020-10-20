@@ -6,9 +6,9 @@ const auth = require('../../middleware/auth');
 const fs = require('fs');
 const fastcsv = require('fast-csv');
 
-let stream = fs.createReadStream(
-  'C:/Users/Bruker/Downloads/archive/three-stars-michelin-restaurants.csv'
-);
+// let stream = fs.createReadStream(
+//   'C:/Users/Bruker/Downloads/archive/three-stars-michelin-restaurants.csv'
+// );
 
 router.get('/', async (req: any, res: Response) => {
   try {

@@ -1,10 +1,12 @@
 import React from 'react';
 import { Dispatch } from 'redux';
 import { useDispatch } from 'react-redux';
+import * as types from '../../type';
+
 
 
 type Props = {
-    review: Review
+    review: types.Review
 }
 
 export const Review: React.FC<Props> = ({ review }) => {

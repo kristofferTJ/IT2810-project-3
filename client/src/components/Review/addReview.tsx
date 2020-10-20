@@ -1,12 +1,14 @@
 import React, { FormEvent } from 'react';
 import { useState } from 'react';
+import * as types from '../../type';
+
 
 type Props = {
-    saveReview: (review: Review | any) => void
+    saveReview: (review: types.Review | any) => void
 }
 
 export const AddReview: React.FC<Props> = ({ saveReview }) => {
-    const [review, setReview] = useState<Review|{}>()
+    const [review, setReview] = useState<types.Review|{}>()
 
     const handleData = (e: FormEvent<HTMLInputElement>) => {
         setReview({

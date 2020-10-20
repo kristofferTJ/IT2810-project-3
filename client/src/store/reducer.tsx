@@ -1,7 +1,8 @@
 import * as actionTypes from './actionType';
-import {Actions} from './actionCreators';
+import * as types from '../type';
 
-const initialState: ReviewState = {
+
+const initialState: types.ReviewState = {
     reviews: [{
         id: 1,
         stars: 3,
@@ -11,15 +12,20 @@ const initialState: ReviewState = {
     ]
 }
 
+const initialStateRestaurant: types.RestaurantState = {
+    restaurants: [],
+    loading: false
+}
+
 let id: number = 1;
 
 export const reviewReducer  = (
-    state: ReviewState = initialState,
-    action: ReviewAction
-): ReviewState => {
+    state: types.ReviewState = initialState,
+    action: types.ReviewAction
+): types.ReviewState => {
     switch(action.type) {
         case actionTypes.ADD_REVIEW:
-            const newReview: Review = {
+            const newReview: types.Review = {
                 id: id,
                 stars: action.review.stars,
                 text: action.review.text,
@@ -34,8 +40,21 @@ export const reviewReducer  = (
     return state
 }
 
-function RestaurantReducer(state: IRestaurant[]=[], action: Actions){
+export default function RestaurantReducer(state: types.RestaurantState = initialStateRestaurant , action: types.RestaurantsAction){
     switch(action.type){
-        case "GET_RESTAURANTS":         
+        case actionTypes.GET_RESTAURANTS: 
+            return {
+                ...state,
+                restaurants: action.payload,
+                loading: false
+            };
+        case "ITEMS_LOADING":
+            return {
+                ...state,
+                loading: true
+            };
+        default:
+            return state;
     }
+
 }
