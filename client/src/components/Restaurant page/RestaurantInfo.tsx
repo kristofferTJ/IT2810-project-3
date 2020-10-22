@@ -1,5 +1,5 @@
 import React from "react";
-import "./RestaurantPage.css";
+import "./RestaurantInfo.css";
 import star from "../../images/star.svg";
 import location from "../../images/location.svg";
 
@@ -13,7 +13,7 @@ interface restaurant {
   url: string;
 }
 
-function RestaurantPage() {
+function RestaurantInfo() {
   const restaurant: restaurant = {
     name: "Olivia",
     stars: 2,
@@ -91,4 +91,4 @@ function RestaurantPage() {
   );
 }
 
-export default RestaurantPage;
+export default RestaurantInfo;

@@ -1,12 +1,12 @@
 import React from "react";
-import RestaurantPage2 from "../components/Restaurant page/RestaurantPage2";
+import RestaurantInfo from "../components/Restaurant page/RestaurantInfo";
 import Header from "../components/Header/Header";
 
 function RestaurantPage() {
   return (
     <div className="App">
       <Header></Header>
-      <RestaurantPage2></RestaurantPage2>
+      <RestaurantInfo></RestaurantInfo>
     </div>
   );
 }

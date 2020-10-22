@@ -1,4 +1,6 @@
-interface Review {
+import * as types from '../../backend/models/Restaurant';
+
+export interface Review {
   id: number;
   stars: number;
   text: string;
@@ -13,23 +15,3 @@ type ReviewAction = {
   type: string;
   review: Review;
 };
-
-type DispatchType = (args: ReviewAction) => ReviewAction;
-
-interface IRestaurant{
-  name: string;
-  year: Number;
-  latitude: Number;
-  longitude: Number;
-  city: string;
-  region: string;
-  zipCode: Number;
-  cuisine: string;
-  price: string;
-  url: string;
-};
-
-type RestaurantsAction = {
-  type: string;
-}
-
