@@ -35,6 +35,13 @@ export default function Filtermenu() {
         open();
     }, [])
 
+    const renderCheckboxlist = () => regions.map((value, index) => (
+        <React.Fragment key={index}>
+        <input type="checkbox" className="filled-in"/>
+        <span>{value.name}</span>
+        </React.Fragment>
+  ))
+
     return(
         <div className="filtermenu">
             <ul className="collapsible expandable">
@@ -47,12 +54,7 @@ export default function Filtermenu() {
                     <form action="#">
                         <p>
                         <label>
-                            {regions.map((value, index) => (
-                                  <React.Fragment key={index}>
-                                  <input type="checkbox" className="filled-in"/>
-                                  <span>{value.name}</span>
-                                  </React.Fragment>
-                            ))} 
+                            {renderCheckboxlist()} 
                         </label>
                         </p>
                     </form>    
