@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // Types
 
-type RestaurantAction = {
+export type RestaurantAction = {
   type: string;
   payload: IRestaurant[];
 };
@@ -46,10 +46,28 @@ export function fetchRestaurantsFailure() {
   };
 }
 
-export function fetchRestaurants() {
-  return (dispatch: any) =>
+export function fetchRestaurants(
+  skip: 0,
+  filters: [],
+  search: '',
+  sortBy: '',
+  ascending: true
+) {
+  const searchString = search ? `&name=${search}` : '';
+  const sortString = sortBy ? `&sort=${sortBy}` : '';
+  const ascendingString = ascending ? '' : 'DESC';
+  let filterString = '';
+  for (let x = 0; x < filters.length; x++) {
+    filterString += `&type${x === 0 ? '' : x}=${filters[x]}`;
+  }
+
+  return (dispatch: Function) =>
     axios
-      .get('http://localhost:8000/api/restaurant/')
+      .get(
+        `http://localhost:8000/api/restaurant/?skip=${
+          skip + filterString + searchString + sortString + ascendingString
+        }`
+      )
       .then((response) => dispatch(fetchRestaurantsSuccess(response)))
       .catch((err) => dispatch(fetchRestaurantsFailure));
 }
