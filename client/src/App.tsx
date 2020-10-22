@@ -4,6 +4,7 @@ import RestaurantPage from "./Pages/RestaurantPage";
 import MainPage from "./Pages/MainPage";
 import StartPage from "./Pages/StartPage";
 import './App.css';
+import RestaurantInfo from "./components/Restaurant page/RestaurantInfo";
 
 
 function App() {
@@ -11,9 +12,8 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={StartPage}></Route>
-        <Route exact path="/restaurants" component={MainPage}></Route>
-        <Route exact path="/restaurant" component={RestaurantPage}></Route>
+        <Route exact path="/" component={MainPage}></Route>
+        <Route exact path="/restaurant/:name" component={RestaurantInfo}></Route>
       </Switch>
     </Router>
   );
