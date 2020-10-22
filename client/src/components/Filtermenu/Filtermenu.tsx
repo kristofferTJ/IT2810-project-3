@@ -6,36 +6,112 @@ import M from 'materialize-css';
 export default function Filtermenu() {
 
     useEffect(() => {
-        console.log('hei');
         const dropdown = () => {
             var elems = document.querySelectorAll('.dropdown-trigger');
-            var instances = M.Dropdown.init(elems, {});
-          
+            var instances = M.Dropdown.init(elems, {});    
     }
         dropdown();
     }, [])
 
+    useEffect(() => {
+        const open = () => {
+            var elems = document.querySelectorAll('.collapsible.expandable');
+            var instances = M.Collapsible.init(elems, {accordion: false});;   
+
+    }
+        open();
+    }, [])
+
     return(
         <div className="filtermenu">
-            <a className="btn dropdown-trigger" href="#!" data-target="dropdown1">Region <i className="material-icons">map</i><i className="material-icons right">arrow_drop_down</i></a>
-            <ul id="dropdown1" className="dropdown-content">
-                <li><a href="#!">one<span className="badge">1</span></a></li>
-                <li><a href="#!">two<span className="new badge">1</span></a></li>
-                <li><a href="#!">three</a></li>
+            <ul className="collapsible expandable">
+                <li>
+                    <div className="collapsible-header">
+                    <i className="material-icons">map</i>
+                    Region
+                    </div>
+                    <div className="collapsible-body"><p>
+                    <form action="#">
+                        <p>
+                        <label>
+                            <input type="checkbox" className="filled-in"/>
+                            <span>Austria</span>
+                        </label>
+                        </p>
+                        <p>
+                        <label>
+                            <input type="checkbox" className="filled-in"/>
+                            <span>California</span>
+                        </label>
+                        </p>
+                        <p>
+                        <label>
+                            <input type="checkbox" className="filled-in"/>
+                            <span>Chicago</span>
+                        </label>
+                        </p>
+                    </form>    
+                    </p>
+                    </div>
+                </li>
+                <li>
+                    <div className="collapsible-header">
+                    <i className="material-icons">local_dining</i>
+                    Cuisine
+                    </div>
+                    <div className="collapsible-body"><p>
+                    <form action="#">
+                        <p>
+                        <label>
+                            <input type="checkbox" className="filled-in"/>
+                            <span>Asian</span>
+                        </label>
+                        </p>
+                        <p>
+                        <label>
+                            <input type="checkbox" className="filled-in"/>
+                            <span>Italian</span>
+                        </label>
+                        </p>
+                        <p>
+                        <label>
+                            <input type="checkbox" className="filled-in"/>
+                            <span>Japanese</span>
+                        </label>
+                        </p>
+                    </form> 
+                    </p></div>
+                </li>
+                <li>
+                    <div className="collapsible-header">
+                    <i className="material-icons">monetization_on</i>
+                    Price
+                    </div>
+                    <div className="collapsible-body"><p>
+                    <form action="#">
+                        <p>
+                        <label>
+                            <input type="checkbox" className="filled-in"/>
+                            <span>$</span>
+                        </label>
+                        </p>
+                        <p>
+                        <label>
+                            <input type="checkbox" className="filled-in"/>
+                            <span>$$</span>
+                        </label>
+                        </p>
+                        <p>
+                        <label>
+                            <input type="checkbox" className="filled-in"/>
+                            <span>$$$</span>
+                        </label>
+                        </p>
+                    </form> 
+                    </p></div>
+                </li>
             </ul>
-            <a className="btn dropdown-trigger" href="#!" data-target="dropdown2">Cuisine <i className="material-icons">local_dining</i><i className="material-icons right">arrow_drop_down</i></a>
-            <ul id="dropdown2" className="dropdown-content">
-                <li><a href="#!">Italian</a></li>
-                <li><a href="#!">Asian</a></li>
-                <li><a href="#!">t</a></li>
-            </ul>
-            <a className="btn dropdown-trigger" href="#!" data-target="dropdown3">Price <i className="material-icons">monetization_on</i><i className="material-icons right">arrow_drop_down</i></a>
-            <ul id="dropdown3" className="dropdown-content">
-                <li><a href="#!">Low<span className="badge">$</span></a></li>
-                <li><a href="#!">Low-Medium<span className="badge">$$</span></a></li>
-                <li><a href="#!">Medium<span className="badge">$$$</span></a></li>
-            </ul>  
-        </div> 
+        </div>
         );
     }
 

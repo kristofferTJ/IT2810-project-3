@@ -28,9 +28,6 @@ export default function Header() {
     <div className="nav-wrapper red accent-2">
         <a href="#" className="brand-logo">Restaurantfinder</a>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
-        <li><a href="sass.html">Reviews</a></li>
-        <li><a href="badges.html">Favorites</a></li>
-        <li><a href="collapsible.html">MySite</a></li>
         </ul>
     </div>
     </nav>
