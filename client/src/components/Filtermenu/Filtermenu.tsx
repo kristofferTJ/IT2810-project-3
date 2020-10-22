@@ -1,17 +1,30 @@
 import React, { useEffect } from 'react';
 import './Filtermenu.css';
 import M from 'materialize-css';
+import { useSelector, useDispatch } from 'react-redux';
+//import { updateType } from '../../store/ducks/filterDuck';
 
 
 export default function Filtermenu() {
 
-    useEffect(() => {
-        const dropdown = () => {
-            var elems = document.querySelectorAll('.dropdown-trigger');
-            var instances = M.Dropdown.init(elems, {});    
-    }
-        dropdown();
-    }, [])
+    //const dispatch = useDispatch();
+    //const types = useSelector(state => state.types);
+
+    const regions = [
+        {
+            "_id": 1,
+            "name": "Austria"
+        },
+        {
+            "_id": 2,
+            "name": "California"
+        },
+        {
+            "_id": 3,
+            "name": "Chicago"
+        },
+    ]
+
 
     useEffect(() => {
         const open = () => {
@@ -34,20 +47,12 @@ export default function Filtermenu() {
                     <form action="#">
                         <p>
                         <label>
-                            <input type="checkbox" className="filled-in"/>
-                            <span>Austria</span>
-                        </label>
-                        </p>
-                        <p>
-                        <label>
-                            <input type="checkbox" className="filled-in"/>
-                            <span>California</span>
-                        </label>
-                        </p>
-                        <p>
-                        <label>
-                            <input type="checkbox" className="filled-in"/>
-                            <span>Chicago</span>
+                            {regions.map((value, index) => (
+                                  <React.Fragment key={index}>
+                                  <input type="checkbox" className="filled-in"/>
+                                  <span>{value.name}</span>
+                                  </React.Fragment>
+                            ))} 
                         </label>
                         </p>
                     </form>    
