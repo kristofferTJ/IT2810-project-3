@@ -20,7 +20,7 @@ export interface IRestaurant extends Document {
   city: string;
   region: string;
   zipCode: Number | String;
-  cuisine: string;
+  cuisine: any;
   price: string;
   url: string;
   stars: Number;
