@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect, Component } from 'react';
 import './Filtermenu.css';
 import M from 'materialize-css';
 
