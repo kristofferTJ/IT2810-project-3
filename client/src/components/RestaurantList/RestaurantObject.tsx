@@ -1,7 +1,7 @@
 import React from 'react';
 import './RestaurantObject.css';
 import {IRestaurant} from '../../../../backend/models/Restaurant';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 type Props = {
