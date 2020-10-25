@@ -5,12 +5,9 @@ import "../App.css";
 // import {RestaurantList} from '../components/RestaurantList/RestaurantList';
 import Restaurants from '../components/RestaurantList/Restaurants';
 import Pagination from '../components/Pagination/Pagination';
-<<<<<<< HEAD
 import Searchbar from "../components/Searchbar/Searchbar";
-=======
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRestaurants } from "../store/ducks/restaurantDuck";
->>>>>>> 84e6349b0ab4fcd5607b8ce590c8705def812867
 
 function MainPage() {
 
