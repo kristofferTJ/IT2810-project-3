@@ -31,11 +31,12 @@ export default function filterReducer(state: string[]=[], action: filterAction){
 // Action creators 
 
 
-export function updateFilter(type = '') {
+export function updateCuisineFilter(newFilter: string = '') {
     return {
-      type: updateFilter,
-      payload: type
+      type: FILTER_UPDATED,
+      payload: newFilter
     };
   }
+
 
   
