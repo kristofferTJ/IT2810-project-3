@@ -1,20 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./RestaurantInfo.css";
 import star from "../../images/star.svg";
 import location from "../../images/location.svg";
+import { IRestaurant } from "../../../../backend/models/Restaurant";
+import Header from '../Header/Header';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { fetchRestaurants } from '../../store/ducks/restaurantDuck';
 
-interface restaurant {
-  name: string;
-  stars: number;
-  region: string;
-  city: string;
-  cuisine: string;
-  price: number;
-  url: string;
-}
+
 
 function RestaurantInfo() {
-  const restaurant: restaurant = {
+
+  const name = useParams()  
+
+  const restaurant: IRestaurant[] = useSelector((state: any)  => state.restaurant)
+
+  console.log(JSON.stringify(restaurant))
+
+  const riktig = restaurant.find((value:IRestaurant) => (value.name === JSON.stringify(name)))
+
+
+  console.log("restaurant: " + riktig)
+
+
+  console.log( JSON.stringify(name))
+
+  
+  const res = {
     name: "Olivia",
     stars: 2,
     region: "Norway",
@@ -24,15 +37,18 @@ function RestaurantInfo() {
     url: "https://oliviarestauranter.no/#!/home",
   };
 
+
   return (
+    <div>
+    <Header></Header>
     <div className="main">
-      <h1>{restaurant.name}</h1>
-      {restaurant.stars === 1 ? (
+      <h1>{res.name}</h1>
+      {res.stars === 1 ? (
         <img src={star} width="30" height="30"></img>
       ) : (
         ""
       )}
-      {restaurant.stars === 2 ? (
+      {res.stars === 2 ? (
         <div>
           <img src={star} width="30" height="30"></img>
           <img src={star} width="30" height="30"></img>
@@ -40,7 +56,7 @@ function RestaurantInfo() {
       ) : (
         ""
       )}
-      {restaurant.stars === 3 ? (
+      {res.stars === 3 ? (
         <div>
           <img src={star} width="30" height="30"></img>
           <img src={star} width="30" height="30"></img>
@@ -62,31 +78,32 @@ function RestaurantInfo() {
             <div className="font">
               <img src={location} width="20px" height="20px"></img>
             </div>
-            {restaurant.region}
+            {res.region}
           </div>
           <div className="attribute">
             <div className="font">
               <img src={location} width="20px" height="20px"></img>
             </div>
-            {restaurant.city}
+            {res.city}
           </div>
           <div className="attribute">
             <div className="font">Cuisine: </div>
-            {restaurant.cuisine}
+            {res.cuisine}
           </div>
           <div className="attribute">
             <div className="font">Price: </div>
-            {restaurant.price === 1 ? <div>$</div> : ""}
-            {restaurant.price === 2 ? <div>$$</div> : ""}
-            {restaurant.price === 3 ? <div>$$$</div> : ""}
-            {restaurant.price === 4 ? <div>$$$$</div> : ""}
-            {restaurant.price === 5 ? <div>$$$$$</div> : ""}
+            {res.price === 1 ? <div>$</div> : ""}
+            {res.price === 2 ? <div>$$</div> : ""}
+            {res.price === 3 ? <div>$$$</div> : ""}
+            {res.price === 4 ? <div>$$$$</div> : ""}
+            {res.price === 5 ? <div>$$$$$</div> : ""}
           </div>
           <div className="attribute">
-            <a href={restaurant.url}>Hjemmeside</a>
+            <a href={res.url}>Hjemmeside</a>
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }
