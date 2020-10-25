@@ -65,8 +65,7 @@ export function fetchRestaurants(
     axios
       .get(
         `http://localhost:8000/api/restaurant/?skip=${
-          skip + filterString + searchString + sortString + ascendingString
-        }`
+          skip + filterString + searchString + sortString + ascendingString}`
       )
       .then((response) => dispatch(fetchRestaurantsSuccess(response)))
       .catch((err) => dispatch(fetchRestaurantsFailure));

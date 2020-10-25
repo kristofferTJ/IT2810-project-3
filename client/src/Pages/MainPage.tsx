@@ -11,20 +11,6 @@ import { fetchRestaurants } from "../store/ducks/restaurantDuck";
 
 function MainPage() {
 
-  const dispatch = useDispatch()
-  const restaurant = useSelector((state: any)  => state.restaurant)
-  const filter = useSelector((state: any)  => state.filter)
-  const search = useSelector((state: any)  => state.search)
-  const sortBy = useSelector((state: any)  => state.sorting)
-
-
-  useEffect(() => {
-    dispatch(
-        fetchRestaurants(0, filter, search, sortBy.sortBy, sortBy.ascending)
-    );
-}, [fetchRestaurants])
-
-
   return (
     <div className="App">
       <Header></Header>
