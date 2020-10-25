@@ -48,7 +48,9 @@ export function fetchRestaurantsFailure() {
 
 export function fetchRestaurants(
   skip: 0,
-  filters: [],
+  regionFilter: [],
+  cuisineFilter: [],
+  priceFilter: [],
   search: '',
   sortBy: '',
   ascending: true
@@ -56,16 +58,16 @@ export function fetchRestaurants(
   const searchString = search ? `&name=${search}` : '';
   const sortString = sortBy ? `&sort=${sortBy}` : '';
   const ascendingString = ascending ? '' : 'DESC';
-  let filterString = '';
-  for (let x = 0; x < filters.length; x++) {
-    filterString += `&type${x === 0 ? '' : x}=${filters[x]}`;
+  let regionString = '';
+  for (let x = 0; x < regionFilter.length; x++) {
+    regionString += `&region${x === 0 ? '' : x}=${regionFilter[x]}`;
   }
 
   return (dispatch: Function) =>
     axios
       .get(
-        `http://localhost:8000/api/restaurant/?skip=${
-          skip + filterString + searchString + sortString + ascendingString}`
+        `http://localhost:8000/api/restaurant/filter/?skip=${
+          skip + regionString + searchString + sortString + ascendingString}`
       )
       .then((response) => dispatch(fetchRestaurantsSuccess(response)))
       .catch((err) => dispatch(fetchRestaurantsFailure));

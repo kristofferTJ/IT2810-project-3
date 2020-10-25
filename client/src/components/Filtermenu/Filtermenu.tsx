@@ -1,6 +1,9 @@
 import React, { useState, useEffect, Component } from 'react';
 import './Filtermenu.css';
 import M from 'materialize-css';
+import { updateRegionFilter } from '../../store/ducks/regionFilterDuck';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchRestaurants } from '../../store/ducks/restaurantDuck';
 
 
 export default function Filtermenu() {
@@ -22,6 +25,8 @@ export default function Filtermenu() {
         open();
     }, [])
 
+    const dispatch = useDispatch();
+
     return(
         <div className="filtermenu">
             <ul className="collapsible expandable">
@@ -34,19 +39,19 @@ export default function Filtermenu() {
                     <form action="#">
                         <p>
                         <label>
-                            <input type="checkbox" className="filled-in"/>
+                            <input type="checkbox" className="filled-in" onChange={() => dispatch(updateRegionFilter("Austria"))}/>
                             <span>Austria</span>
                         </label>
                         </p>
                         <p>
                         <label>
-                            <input type="checkbox" className="filled-in"/>
+                            <input type="checkbox" className="filled-in" onChange={() => dispatch(updateRegionFilter("California"))}/>
                             <span>California</span>
                         </label>
                         </p>
                         <p>
                         <label>
-                            <input type="checkbox" className="filled-in"/>
+                            <input type="checkbox" className="filled-in" onChange={() => dispatch(updateRegionFilter("Chicago"))}/>
                             <span>Chicago</span>
                         </label>
                         </p>
