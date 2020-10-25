@@ -4,6 +4,9 @@ import M from 'materialize-css';
 import { updateRegionFilter } from '../../store/ducks/regionFilterDuck';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchRestaurants } from '../../store/ducks/restaurantDuck';
+import { updateCuisineFilter } from '../../store/ducks/cuisineFilterDuck';
+import { updateParameter } from 'typescript';
+import { updatePriceFilter } from '../../store/ducks/priceFilterDuck';
 
 
 export default function Filtermenu() {
@@ -26,6 +29,21 @@ export default function Filtermenu() {
     }, [])
 
     const dispatch = useDispatch();
+    const restaurant = useSelector((state: any)  => state.restaurant)
+    const regionFilter = useSelector((state: any)  => state.regionFilter)
+    const priceFilter = useSelector((state: any)  => state.priceFilter)
+    const cuisineFilter = useSelector((state: any)  => state.cuisineFilter)
+    const search = useSelector((state: any)  => state.search)
+    const sortBy = useSelector((state: any)  => state.sorting)
+
+
+    useEffect(() => {
+        dispatch(
+            fetchRestaurants(0, regionFilter, cuisineFilter, priceFilter , search, sortBy.sortBy, sortBy.ascending)
+        );
+    }, [fetchRestaurants, regionFilter, cuisineFilter, priceFilter, search, sortBy])
+
+
 
     return(
         <div className="filtermenu">
@@ -68,19 +86,19 @@ export default function Filtermenu() {
                     <form action="#">
                         <p>
                         <label>
-                            <input type="checkbox" className="filled-in"/>
+                            <input type="checkbox" className="filled-in" onChange={() => dispatch(updateCuisineFilter("Asian"))}/>
                             <span>Asian</span>
                         </label>
                         </p>
                         <p>
                         <label>
-                            <input type="checkbox" className="filled-in"/>
+                            <input type="checkbox" className="filled-in" onChange={() => dispatch(updateCuisineFilter("Italian"))}/>
                             <span>Italian</span>
                         </label>
                         </p>
                         <p>
                         <label>
-                            <input type="checkbox" className="filled-in"/>
+                            <input type="checkbox" className="filled-in" onChange={() => dispatch(updateCuisineFilter("Japanese"))}/>
                             <span>Japanese</span>
                         </label>
                         </p>
@@ -96,19 +114,19 @@ export default function Filtermenu() {
                     <form action="#">
                         <p>
                         <label>
-                            <input type="checkbox" className="filled-in"/>
+                            <input type="checkbox" className="filled-in" onChange={() => dispatch(updatePriceFilter("$"))}/>
                             <span>$</span>
                         </label>
                         </p>
                         <p>
                         <label>
-                            <input type="checkbox" className="filled-in"/>
+                            <input type="checkbox" className="filled-in" onChange={() => dispatch(updatePriceFilter("$$"))}/>
                             <span>$$</span>
                         </label>
                         </p>
                         <p>
                         <label>
-                            <input type="checkbox" className="filled-in"/>
+                            <input type="checkbox" className="filled-in" onChange={() => dispatch(updatePriceFilter("$$$"))}/>
                             <span>$$$</span>
                         </label>
                         </p>

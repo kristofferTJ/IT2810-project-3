@@ -14,16 +14,18 @@ function App() {
   
   const dispatch = useDispatch()
   const restaurant = useSelector((state: any)  => state.restaurant)
-  const filter = useSelector((state: any)  => state.regionFilter)
+  const regionFilter = useSelector((state: any)  => state.regionFilter)
+  const cuisineFilter = useSelector((state: any)  => state.cuisineFilter)
+  const priceFilter = useSelector((state: any)  => state.priceFilter)
   const search = useSelector((state: any)  => state.search)
   const sortBy = useSelector((state: any)  => state.sorting)
 
 
   useEffect(() => {
     dispatch(
-        fetchRestaurants(0, filter, [], [], search, sortBy.sortBy, sortBy.ascending)
+        fetchRestaurants(0, regionFilter, cuisineFilter, priceFilter, search, sortBy.sortBy, sortBy.ascending)
     );
-}, [fetchRestaurants, filter])
+}, [fetchRestaurants, regionFilter, cuisineFilter, priceFilter, search, sortBy])
 
   return (
     <Router>

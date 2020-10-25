@@ -62,12 +62,20 @@ export function fetchRestaurants(
   for (let x = 0; x < regionFilter.length; x++) {
     regionString += `&region${x === 0 ? '' : x}=${regionFilter[x]}`;
   }
+  let cuisineString = '';
+  for (let x = 0; x < cuisineFilter.length; x++) {
+    cuisineString += `&cuisine${x === 0 ? '' : x}=${cuisineFilter[x]}`;
+  }
+  let priceString = '';
+  for (let x = 0; x < priceFilter.length; x++) {
+    priceString += `&price${x === 0 ? '' : x}=${priceFilter[x]}`;
+  }
 
   return (dispatch: Function) =>
     axios
       .get(
         `http://localhost:8000/api/restaurant/filter/?skip=${
-          skip + regionString + searchString + sortString + ascendingString}`
+          skip  + cuisineString + priceString + regionString + searchString + sortString + ascendingString}`
       )
       .then((response) => dispatch(fetchRestaurantsSuccess(response)))
       .catch((err) => dispatch(fetchRestaurantsFailure));
