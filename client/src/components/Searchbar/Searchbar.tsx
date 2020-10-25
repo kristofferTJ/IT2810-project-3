@@ -1,21 +1,18 @@
 import React from 'react'
+import './Searchbar.css';
 
 function Searchbar() {
     return (
-        <section id="search" className="section section-search">       
-            <div className="container">
-                <div className="row">
-                    <div className="col s12">
-                        <h5>Search restaurants</h5>
-                        <div className="input-filed">
-                            <input type="text" className="white gray-text" placeholder="Search for restaurants...">
-                            </input>
-                            <a className="waves-effect waves-teal btn-flat"><i className="material-icons">search</i></a>
-                        </div>
-                    </div>
+        <div className="input-field">
+            <div className="Search-input">
+                <input id="search-input" placeholder="Search" type="text" className="white" aria-label="Search box">
+                </input>
                 </div>
+            <div>
+            <a id="search-button" className="waves-effect waves-light btn #ffc107 amber"><i className="material-icons search-icon">search</i></a>
             </div>
-        </section>
+        </div>
+       
     )
 }
 

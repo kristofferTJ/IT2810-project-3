@@ -10,9 +10,17 @@ import Searchbar from "../components/Searchbar/Searchbar";
 function MainPage() {
   return (
     <div className="App">
-    <div className="App">
       <Header></Header>
-      <Searchbar></Searchbar>
+      <section id="search" className="section section-search #b2ebf2 cyan lighten-4">       
+            <div className="container">
+                <div className="row">
+                    <div className="col s12">
+                        <h5>Search restaurants:</h5>
+                        <Searchbar></Searchbar>
+                    </div>
+                </div>
+            </div>
+        </section>
       <div className="content">
           <Filtermenu></Filtermenu>
           <div className="container">
@@ -21,7 +29,6 @@ function MainPage() {
             <Pagination></Pagination>
           </div>
       </div>
-    </div>
     </div>
   );
 }

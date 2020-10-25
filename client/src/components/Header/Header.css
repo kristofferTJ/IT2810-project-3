@@ -1,47 +1,4 @@
-.header{
-    display: flex;
-    height: 55px;
-    background-color: #F05D6C; 
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;   
-}
 
-.title{
-    margin: 0px;
-    padding: 10px;
-    font-family: Verdana;
-    font-size: 26px;
-    color: black;
-}
 
-.searchDiv{
-    width: 30%
-}
 
-.searchbar{
-    width: 20%;
-    height: 32px;
-    border: none;
-    border-radius: 5px;
-}
-
-.options{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between; 
-    width: 20%; 
-    padding: 10px;
-}
-
-.header_option{
-    font-size: 15px;
-    font-family: Verdana;
-}
-
-nav form {
-    margin-left: 180px;
-    width: 300px;
-  }
-  
 
