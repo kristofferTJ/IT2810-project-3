@@ -1,0 +1,9 @@
+#restaurantlist{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.bold{
+    font-weight: bold;
+}

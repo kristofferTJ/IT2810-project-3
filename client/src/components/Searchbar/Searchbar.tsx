@@ -31,7 +31,7 @@ function Searchbar() {
                 </input>
                 </div>
             <div>
-            <a id="search-button" className="waves-effect waves-light btn #ffc107 amber"><i className="material-icons search-icon">search</i></a>
+            <span id="search-button" className="waves-effect waves-light btn #ffc107 amber"><i className="material-icons search-icon">search</i></span>
             </div>
         </div>
        

@@ -4,3 +4,10 @@
     margin: auto;
     align-items: center;
 }
+
+
+.content{
+    display: flex;
+    flex-direction: row;
+  
+  }
