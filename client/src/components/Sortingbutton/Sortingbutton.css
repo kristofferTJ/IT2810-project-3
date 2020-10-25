@@ -1,0 +1,9 @@
+#sorting-button{
+    height: 40px;
+    width: 95px;
+    border-radius: 15px;
+} 
+
+.dropdown-content li{
+    width: 100px;
+}
