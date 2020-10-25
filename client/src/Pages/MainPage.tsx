@@ -13,7 +13,7 @@ import { fetchRestaurants } from "../store/ducks/restaurantDuck";
 function MainPage() {
 
   return (
-    <div className="App">
+    <div>
       <Header></Header>
       <section id="search" className="section section-search #b2ebf2 cyan lighten-4">       
             <div className="container">
