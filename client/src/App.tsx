@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Router as Router, Route, Switch } from "react-router-dom";
 import RestaurantPage from "./Pages/RestaurantPage";
 import MainPage from "./Pages/MainPage";
 import StartPage from "./Pages/StartPage";
@@ -7,6 +7,7 @@ import './App.css';
 import RestaurantInfo from "./components/Restaurant page/RestaurantInfo";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRestaurants } from "./store/ducks/restaurantDuck";
+import history from './history';
 
 
 function App() {
@@ -26,9 +27,10 @@ function App() {
 }, [fetchRestaurants])
 
   return (
-    <Router>
+    <Router history={history}>
       <Switch>
-        <Route exact path="/" component={MainPage}></Route>
+        <Route exact path="/Restaurants" component={MainPage}></Route>
+        <Route exact path="/" component={StartPage}></Route>
         <Route exact path="/restaurant/:name" component={RestaurantInfo}></Route>
       </Switch>
     </Router>
