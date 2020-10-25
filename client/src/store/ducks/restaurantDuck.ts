@@ -58,24 +58,32 @@ export function fetchRestaurants(
   const searchString = search ? `&name=${search}` : '';
   const sortString = sortBy ? `&sort=${sortBy}` : '';
   const ascendingString = ascending ? '' : 'DESC';
+
   let regionString = '';
   for (let x = 0; x < regionFilter.length; x++) {
     regionString += `&region${x === 0 ? '' : x}=${regionFilter[x]}`;
   }
+
   let cuisineString = '';
-  for (let x = 0; x < cuisineFilter.length; x++) {
-    cuisineString += `&cuisine${x === 0 ? '' : x}=${cuisineFilter[x]}`;
+  for (let i = 0; i < cuisineFilter.length; i++) {
+    cuisineString += `&cuisine${i === 0 ? '' : i}=${cuisineFilter[i]}`;
   }
+  
   let priceString = '';
   for (let x = 0; x < priceFilter.length; x++) {
     priceString += `&price${x === 0 ? '' : x}=${priceFilter[x]}`;
   }
 
+  console.log(priceString)
+  console.log(cuisineString)
+  console.log(regionString)
+
+
   return (dispatch: Function) =>
     axios
       .get(
         `http://localhost:8000/api/restaurant/filter/?skip=${
-          skip  + cuisineString + priceString + regionString + searchString + sortString + ascendingString}`
+          skip + regionString + cuisineString + priceString  + searchString + sortString + ascendingString}`
       )
       .then((response) => dispatch(fetchRestaurantsSuccess(response)))
       .catch((err) => dispatch(fetchRestaurantsFailure));

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Header from "../components/Header/Header";
 import Filtermenu from "../components/Filtermenu/Filtermenu";
 import "./MainPage.css";
@@ -7,8 +7,7 @@ import Restaurants from '../components/RestaurantList/Restaurants';
 import Pagination from '../components/Pagination/Pagination';
 import Searchbar from '../components/Searchbar/Searchbar';
 import Sortingbutton from '../components/Sortingbutton/Sortingbutton';
-import { useDispatch, useSelector } from "react-redux";
-import { fetchRestaurants } from "../store/ducks/restaurantDuck";
+
 
 function MainPage() {
 

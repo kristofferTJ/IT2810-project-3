@@ -9,13 +9,13 @@ export type filterAction = {
 
 // Actions
 
-const FILTER_UPDATED = 'FILTER_UPDATED';
+const PRICE_FILTER_UPDATED = 'PRICE_FILTER_UPDATED';
 
 //Reducer
 
 export default function filterReducer(state: string[]=[], action: filterAction){
     switch(action.type) {
-        case FILTER_UPDATED:
+        case PRICE_FILTER_UPDATED:
             if(state.includes(action.payload)){
                 const newState = state.filter(f => f != action.payload);
                 return newState;
@@ -33,7 +33,7 @@ export default function filterReducer(state: string[]=[], action: filterAction){
 
 export function updatePriceFilter(newFilter: string = '') {
     return {
-      type: FILTER_UPDATED,
+      type: PRICE_FILTER_UPDATED,
       payload: newFilter
     };
   }
