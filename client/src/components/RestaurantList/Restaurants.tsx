@@ -15,13 +15,14 @@ function Restaurants() {
     const cuisineFilter = useSelector((state: any)  => state.cuisineFilter)
     const search = useSelector((state: any)  => state.search)
     const sortBy = useSelector((state: any)  => state.sorting)
+    const skip = useSelector((state: any) => state.skip)
 
 
     useEffect(() => {
         dispatch(
-            fetchRestaurants(0, regionFilter, cuisineFilter, priceFilter , search, sortBy.sortBy, sortBy.ascending)
+            fetchRestaurants(skip, regionFilter, cuisineFilter, priceFilter , search, sortBy.sortBy, sortBy.ascending)
         );
-    }, [fetchRestaurants, regionFilter, cuisineFilter, priceFilter, search, sortBy])
+    }, [fetchRestaurants, regionFilter, cuisineFilter, priceFilter, search, sortBy, skip])
 
 
 
