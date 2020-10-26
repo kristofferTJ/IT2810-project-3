@@ -22,6 +22,7 @@ function App() {
   const sortBy = useSelector((state: any)  => state.sorting)
   const skip = useSelector((state: any) => state.skip)
 
+ 
 
   useEffect(() => {
     dispatch(
@@ -34,7 +35,7 @@ function App() {
       <Switch>
         <Route exact path="/Restaurants" component={MainPage}></Route>
         <Route exact path="/" component={StartPage}></Route>
-        <Route exact path="/restaurant/:name" component={RestaurantInfo}></Route>
+        <Route exact path="/restaurant/:name" component={RestaurantPage}></Route>
       </Switch>
     </Router>
   );

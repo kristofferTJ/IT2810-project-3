@@ -5,6 +5,12 @@
     flex-wrap: wrap;
 }
 
+.card{
+    flex: 1;
+    margin: 20px !important;
+    min-width: 200px !important;
+}
+
 .bold{
     font-weight: bold;
 }
