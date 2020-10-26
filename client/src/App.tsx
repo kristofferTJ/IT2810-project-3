@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Router as Router, Route, Switch } from "react-router-dom";
-import RestaurantPage from "./Pages/RestaurantPage";
 import MainPage from "./Pages/MainPage";
 import StartPage from "./Pages/StartPage";
 import './App.css';
