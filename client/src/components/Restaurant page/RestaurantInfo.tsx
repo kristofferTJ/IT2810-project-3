@@ -13,6 +13,7 @@ import axios from "axios";
 
 function RestaurantInfo() {
 
+  
   const name = useParams()  
 
   const n = {name}.name
@@ -48,6 +49,8 @@ function RestaurantInfo() {
 
 
   return (
+    
+    
     <div>
     <Header></Header>
     <div className="main">
@@ -109,7 +112,9 @@ function RestaurantInfo() {
         </div>
       </div>
     </div>
+    
     </div>
+
   );
 }
 
