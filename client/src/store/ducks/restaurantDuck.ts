@@ -8,6 +8,16 @@ export type RestaurantAction = {
   payload: IRestaurant[];
 };
 
+type fetchRestaurantType = {
+  skip: number,
+  regionFilter: string[],
+  cuisineFilter: string[],
+  priceFilter: string[],
+  search: string,
+  sortBy: string,
+  ascending: boolean
+}
+
 // Actions
 
 const GET_RESTAURANTS_SUCCESS = 'GET_RESTAURANTS_SUCCESS';
@@ -58,6 +68,7 @@ export function fetchRestaurants(
   const searchString = search ? `&name=${search}` : '';
   const sortString = sortBy ? `&sort=${sortBy}` : '';
   const ascendingString = ascending ? '' : 'DESC';
+  const skipInput = skip ? skip : 0;
 
   let regionString = '';
   for (let x = 0; x < regionFilter.length; x++) {
@@ -74,16 +85,12 @@ export function fetchRestaurants(
     priceString += `&price${x === 0 ? '' : x}=${priceFilter[x]}`;
   }
 
-  console.log(priceString)
-  console.log(cuisineString)
-  console.log(regionString)
-
 
   return (dispatch: Function) =>
     axios
       .get(
         `http://localhost:8000/api/restaurant/filter/?skip=${
-          skip + regionString + cuisineString + priceString  + searchString + sortString + ascendingString}`
+          skipInput + regionString + cuisineString + priceString  + searchString + sortString + ascendingString}`
       )
       .then((response) => dispatch(fetchRestaurantsSuccess(response)))
       .catch((err) => dispatch(fetchRestaurantsFailure));
