@@ -23,7 +23,6 @@ function App() {
   const skip = useSelector((state: any) => state.skip)
 
  
-
   useEffect(() => {
     dispatch(
         fetchRestaurants(skip, regionFilter, cuisineFilter, priceFilter, search, sortBy.sortBy, sortBy.ascending)
