@@ -2,11 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./RestaurantInfo.css";
 import { IRestaurant } from "../../../../backend/models/Restaurant";
 import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from "react-redux";
-import { fetchRestaurants } from '../../store/ducks/restaurantDuck';
-import { updateSearch } from "../../store/ducks/searchDuck";
-import history from "../../history";
-import axios from "axios";
+import axios from 'axios';
 
 interface IParams {
   name: string;
@@ -16,8 +12,8 @@ interface IParams {
 function RestaurantInfo() {
  
   const [restaurant, setRestaurant] = useState<IRestaurant[]>();
+  const params: IParams = useParams()  
 
-  const params: IParams = useParams() 
 
   useEffect(() => {
       const getRestaurant = async() => {

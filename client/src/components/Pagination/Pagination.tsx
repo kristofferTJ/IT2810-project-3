@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateSkip } from '../../store/ducks/skipDuck';
 import PaginationButton from './PaginationButton';
 
