@@ -15,11 +15,12 @@ function Searchbar() {
     return (
         <div className="input-field">
             <div className="Search-input">
-                <input id="search-input" placeholder="Search" type="text" className="white" aria-label="Search box" onChange={e => changeText(e.target.value)}>
+                <i className="material-icons search-icon prefix">search</i>
+                <input id="icon_prefix" placeholder="Search" type="text" className="white" aria-label="Search box" onChange={e => changeText(e.target.value)}>
                 </input>
                 </div>
             <div>
-            <span id="search-button" className="waves-effect waves-light btn #ffc107 amber"><i className="material-icons search-icon">search</i></span>
+    
             </div>
         </div>
        
