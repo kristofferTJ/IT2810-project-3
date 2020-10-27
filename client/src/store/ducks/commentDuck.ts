@@ -57,6 +57,7 @@ export const saveComment = ({comment, restaurant}: commentType) => async (dispat
             payload: response.data
         })
     } catch(error) {
+        console.log(error)
 
     }
 }
