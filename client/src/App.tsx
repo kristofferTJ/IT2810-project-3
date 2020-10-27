@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Router as Router, Route, Switch } from "react-router-dom";
+import RestaurantPage from "./Pages/RestaurantPage";
 import MainPage from "./Pages/MainPage";
 import StartPage from "./Pages/StartPage";
 import './App.css';
@@ -7,20 +8,19 @@ import RestaurantInfo from "./components/Restaurant page/RestaurantInfo";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRestaurants } from "./store/ducks/restaurantDuck";
 import history from './history';
-import LoginPage from "./Pages/LoginPage";
 
 
 function App() {
 
   
   const dispatch = useDispatch()
+  const restaurant = useSelector((state: any)  => state.restaurant)
   const regionFilter = useSelector((state: any)  => state.regionFilter)
   const cuisineFilter = useSelector((state: any)  => state.cuisineFilter)
   const priceFilter = useSelector((state: any)  => state.priceFilter)
   const search = useSelector((state: any)  => state.search)
   const sortBy = useSelector((state: any)  => state.sorting)
   const skip = useSelector((state: any) => state.skip)
-
  
   useEffect(() => {
     dispatch(
@@ -33,8 +33,7 @@ function App() {
       <Switch>
         <Route exact path="/Restaurants" component={MainPage}></Route>
         <Route exact path="/" component={StartPage}></Route>
-        <Route exact path="/restaurant/:name" component={RestaurantInfo}></Route>
-        <Route exact path="/login" component={LoginPage}></Route>
+        <Route exact path="/restaurant/:name" component={RestaurantPage}></Route>
       </Switch>
     </Router>
   );
