@@ -24,12 +24,11 @@ function RestaurantInfo() {
       getRestaurant();
   }, [])
 
-  
+
 /*
    let image_path: string = '';  
 
     try {  
-      
         image_path = require('../../images/'+restaurant.cuisine+'.jpg') 
      
       }
