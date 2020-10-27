@@ -3,6 +3,7 @@ import "./RestaurantInfo.css";
 import { IRestaurant } from "../../../../backend/models/Restaurant";
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import history from '../../history';
 
 interface IParams {
   name: string;
