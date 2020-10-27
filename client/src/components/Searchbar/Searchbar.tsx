@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchRestaurants } from '../../store/ducks/restaurantDuck';
+import React from 'react'
+import { useDispatch } from 'react-redux';
 import { updateSearch } from '../../store/ducks/searchDuck';
 import './Searchbar.css';
 

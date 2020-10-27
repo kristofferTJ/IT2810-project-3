@@ -9,7 +9,7 @@ export interface IRating extends Document {
 
 export interface IComment extends Document {
   user: Types.ObjectId;
-  comment: String;
+  comment: string;
 }
 
 export interface IRestaurant extends Document {

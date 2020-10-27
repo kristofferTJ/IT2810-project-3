@@ -68,6 +68,7 @@ function RestaurantInfo() {
                 </div>
             </div>
           ))}
+          {restaurant?.length===0 ? <h2>ERROR: Can not fecth restaurant from database</h2> : ""}
         </div>
     </div>
   );

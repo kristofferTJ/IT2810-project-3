@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchRestaurants } from "./store/ducks/restaurantDuck";
 import history from './history';
 import LoginPage from "./Pages/LoginPage";
+import RestaurantPage from "./Pages/RestaurantPage";
 
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
       <Switch>
         <Route exact path="/Restaurants" component={MainPage}></Route>
         <Route exact path="/" component={StartPage}></Route>
-        <Route exact path="/restaurant/:name" component={RestaurantInfo}></Route>
+        <Route exact path="/restaurant/:name" component={RestaurantPage}></Route>
         <Route exact path="/login" component={LoginPage}></Route>
       </Switch>
     </Router>
