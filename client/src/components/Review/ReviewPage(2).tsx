@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallowEqual, useSelector, useDispatch } from 'react-redux';
-import {Review} from '../../components/Review/Review';
+import {Review} from './Review(2)';
 import {Dispatch} from 'redux';
 // import { addReview } from '../../store/actionCreators';
-import { AddReview } from '../../components/Review/addReview';
+import { AddReview } from './addReview(2)';
 import * as types from '../../type';
 
 function ReviewPage() {

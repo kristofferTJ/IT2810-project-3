@@ -1,8 +1,9 @@
 .attribute {
-  justify-content: left;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
+
 
 .font {
   font-weight: bold;

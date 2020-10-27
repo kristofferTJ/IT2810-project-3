@@ -1,21 +1,20 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { updateSkip } from '../../store/ducks/skipDuck';
+import PaginationButton from './PaginationButton';
 
 export default function Pagination() {
 
-    const dispatch = useDispatch();
-    const skip = useSelector((state: any) => state.skip)
 
     return(
         <ul className="pagination">
-            <li className="disabled" onClick={() => dispatch(updateSkip(skip-20))}><a href="#!"><i className="material-icons">chevron_left</i></a></li>
-            <li className="active #ffc107 amber" onClick={() => dispatch(updateSkip(0))}><a href="#!">1</a></li>
-            <li className="waves-effect" onClick={() => dispatch(updateSkip(20))}><a href="#!">2</a></li>
-            <li className="waves-effect" onClick={() => dispatch(updateSkip(40))}><a href="#!">3</a></li>
-            <li className="waves-effect" onClick={() => dispatch(updateSkip(60))}><a href="#!">4</a></li>
-            <li className="waves-effect" onClick={() => dispatch(updateSkip(80))}><a href="#!">5</a></li>
-            <li className="waves-effect" onClick={() => dispatch(updateSkip(skip+20))}><a href="#!"><i className="material-icons">chevron_right</i></a></li>
+            <li className="disabled"><a href="#!"><i className="material-icons">chevron_left</i></a></li>
+            <PaginationButton skipNumber={0} pageNumber={1}></PaginationButton>
+            <PaginationButton skipNumber={20} pageNumber={2}></PaginationButton>
+            <PaginationButton skipNumber={40} pageNumber={3}></PaginationButton>
+            <PaginationButton skipNumber={60} pageNumber={4}></PaginationButton>
+            <li className="waves-effect"><a href="#!"><i className="material-icons">chevron_right</i></a></li>
+            {/* <li className="waves-effect" onClick={() => dispatch(updateSkip(80))}><a href="#!"><i className="material-icons">chevron_right</i></a></li> */}
         </ul>
     )
 }

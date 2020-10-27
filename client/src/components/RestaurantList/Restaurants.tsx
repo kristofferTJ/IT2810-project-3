@@ -30,8 +30,7 @@ function Restaurants() {
         <section className="section section-icons gray lighten-4 center">
             <div className="container">
                 <div className="restaurantlist">
-                    <div className="row">
-                    <div className="col s12 m6">
+                    
                     {restaurant?.map((restaurant: IRestaurant) => (
                         <RestaurantObject
                         key={restaurant._id}
@@ -39,8 +38,7 @@ function Restaurants() {
                         ></RestaurantObject>
                     ))}
                     </div>
-                </div>
-                </div>
+               
             </div>
         </section>
     )
