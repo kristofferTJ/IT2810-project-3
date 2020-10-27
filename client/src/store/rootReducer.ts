@@ -6,6 +6,7 @@ import regionFilterDuck from './ducks/regionFilterDuck';
 import searchDuck from './ducks/searchDuck';
 import sortingDuck from './ducks/sortingDuck';
 import skipReducer from './ducks/skipDuck';
+import loginReducer from './ducks/loginDuck';
 
 const rootReducer = combineReducers({
     restaurant: restaurantDuck,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
     cuisineFilter: cuisineFilterDuck,
     search: searchDuck,
     sorting: sortingDuck,
-    skip: skipReducer
+    skip: skipReducer,
+    login: loginReducer
 });
 
 export default rootReducer;

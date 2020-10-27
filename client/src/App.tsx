@@ -7,13 +7,13 @@ import RestaurantInfo from "./components/Restaurant page/RestaurantInfo";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRestaurants } from "./store/ducks/restaurantDuck";
 import history from './history';
+import LoginPage from "./Pages/LoginPage";
 
 
 function App() {
 
   
   const dispatch = useDispatch()
-  const restaurant = useSelector((state: any)  => state.restaurant)
   const regionFilter = useSelector((state: any)  => state.regionFilter)
   const cuisineFilter = useSelector((state: any)  => state.cuisineFilter)
   const priceFilter = useSelector((state: any)  => state.priceFilter)
@@ -34,6 +34,7 @@ function App() {
         <Route exact path="/Restaurants" component={MainPage}></Route>
         <Route exact path="/" component={StartPage}></Route>
         <Route exact path="/restaurant/:name" component={RestaurantInfo}></Route>
+        <Route exact path="/login" component={LoginPage}></Route>
       </Switch>
     </Router>
   );
