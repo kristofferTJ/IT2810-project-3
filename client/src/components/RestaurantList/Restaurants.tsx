@@ -24,8 +24,6 @@ function Restaurants() {
         );
     }, [fetchRestaurants, regionFilter, cuisineFilter, priceFilter, search, sortBy, skip])
 
-
-
     return(
         <section className="section section-icons gray lighten-4 center">
             <div className="container">

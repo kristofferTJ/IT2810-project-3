@@ -1,9 +1,8 @@
 import React, {useEffect} from 'react';
 import './Reviews.css';
-import noUiSlider from 'nouislider';
-import 'nouislider/distribute/nouislider.css';
-import './Reviews.css';
-import wNumb from 'wnumb';
+// import noUiSlider from 'nouislider';
+// import 'nouislider/distribute/nouislider.css';
+// import wNumb from 'wnumb';
 
 function Rating() {
 

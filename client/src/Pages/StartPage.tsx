@@ -2,7 +2,6 @@ import React from 'react';
 import Header from "../components/Header/Header";
 import Slides from "../components/Slides/Slides";
 import history from "../history";
-import {Link } from 'react-router-dom';
 
 function StartPage() {
   return (
