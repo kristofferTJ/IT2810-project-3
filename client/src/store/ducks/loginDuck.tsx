@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { setAlert } from './alert';
+//import { setAlert } from './alert';
 import setAuthToken from '../../utils/setAuthToken';
 
 // Types
@@ -106,9 +106,9 @@ export const login = ({email, password}: loginType) => async (dispatch: Function
     } catch (error) {
         const err = error.response.data.errors
 
-        if(err) {
-            err.forEach((value: any) => dispatch(setAlert(value.msg, 'danger')))
-        }
+        // if(err) {
+        //     err.forEach((value: any) => dispatch(setAlert(value.msg, 'danger')))
+        // }
 
         dispatch({
             type: LOGIN_FAIL

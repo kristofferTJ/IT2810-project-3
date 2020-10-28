@@ -40,7 +40,7 @@ function Reviews() {
         <div className="section">
             <div className="container">
                 <div id="reviewContainer" className="z-depth-1">
-                    <h5>Comments:</h5>
+                    <h5 className="comment">Comments:</h5>
                     <div className="section">
                         {restaurant?.map((restaurant: IRestaurant) => (restaurant.comments.map((comment: IComment) => (
                        <Comment
