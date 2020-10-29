@@ -44,6 +44,7 @@ export default function loginReducer(state = initialState, action: loginAction) 
       }
       case LOGIN_SUCCESS:
           localStorage.setItem('token', action.payload.token)
+          console.log(localStorage.getItem('token'))
           return {
               ...state,
               ...action.payload,
@@ -72,7 +73,7 @@ export const loadUser = () => async (dispatch: Function) => {
     }
 
     try {
-        const response = await axios.get(`http://loaclhost:8000/api/auth`)
+        const response = await axios.get(`http://localhost:8000/api/auth`)
 
         dispatch({
             type: USER_LOADED,
@@ -104,7 +105,7 @@ export const login = ({email, password}: loginType) => async (dispatch: Function
 
         dispatch(loadUser())
     } catch (error) {
-        const err = error.response.data.errors
+        console.log("Det har skjedd en feil i loginDuck")
 
         // if(err) {
         //     err.forEach((value: any) => dispatch(setAlert(value.msg, 'danger')))

@@ -3,7 +3,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 // import Alert from './Alert';
-import { login } from '../../store/ducks/loginDuck';
+import { login, logout } from '../../store/ducks/loginDuck';
+import { Link, Redirect, Route, Router } from 'react-router-dom';
 
 
 interface LoginFormType {
@@ -66,18 +67,23 @@ class LoginForm extends Component<any, any> {
         // if (this.state.password === '') {
         //     this.showValidationError('password', 'Passordfeltet kan ikke være tomt!')
         // }
-        // if ((this.state.email !== '') && (re.test(this.state.email)) && (this.state.password !== '')) {
-        //     this.props.login({email, password})
-        // }
+         if ((this.state.email !== '') && (re.test(this.state.email)) && (this.state.password !== '')) {
+             this.props.login({email, password})
+        }
 
     }
     render() {
 
         
-        // //Redirect if logged in
-        // if (this.props.isAuthenticated) {
-        //     return <Redirect to='/' />
-        // }
+        //Redirect if logged in
+        if (this.props.isAuthenticated) {
+            return <div>Du er nå logget inn som </div>
+
+            {/* <Link to={{pathname:"/restaurants"}}>Gå til restaurant side</Link>            
+            </div> */}
+
+        //    return <Redirect to='/restaurants' />
+        }
 
 
         let emailErr = null, passwordErr = null;
@@ -90,50 +96,49 @@ class LoginForm extends Component<any, any> {
                 passwordErr = err.msg;
             }
         }
-
-
-    return (
-                    
-        <div className="inner-container">
-        <div className="header">
-            Logg Inn
+        return (                    
+            <div className="inner-container">
+            <div className="header">
+                Logg Inn
+            </div>
+            <div className="box">
+    
+                {/* <Alert /> */}
+                <div className="input-group">
+                    <label htmlFor="email">Email</label>
+                    <input 
+                        type='email' 
+                        name='email' 
+                        value={this.state.email}
+                        className='login-input' 
+                        placeholder='Ola.normann@domene.no' 
+                        onChange={this.onemailChange.bind(this)}
+                    />
+                    <small className="danger-error">{ emailErr ? emailErr : '' }</small>
+                </div>
+    
+                <div className="input-group">
+                    <label htmlFor="password">Passord</label>
+                    <input 
+                        type='password' 
+                        name='password' 
+                        className='login-input' 
+                        placeholder='Passord'
+                        onChange={this.onPasswordChange.bind(this)}
+                    />
+                    <small className="danger-error">{ passwordErr 
+                        ? passwordErr 
+                        : '' }</small>
+                </div>
+    
+                <button type='button' className='login-btn' onClick={this.submitLogin.bind(this)}>Logg Inn</button>
+            </div> 
         </div>
-        <div className="box">
+        )
+    } 
+ 
+} 
 
-            {/* <Alert /> */}
-            <div className="input-group">
-                <label htmlFor="email">Email</label>
-                <input 
-                    type='email' 
-                    name='email' 
-                    value={this.state.email}
-                    className='login-input' 
-                    placeholder='Ola.normann@domene.no' 
-                    onChange={this.onemailChange.bind(this)}
-                />
-                <small className="danger-error">{ emailErr ? emailErr : '' }</small>
-            </div>
-
-            <div className="input-group">
-                <label htmlFor="password">Passord</label>
-                <input 
-                    type='password' 
-                    name='password' 
-                    className='login-input' 
-                    placeholder='Passord'
-                    onChange={this.onPasswordChange.bind(this)}
-                />
-                <small className="danger-error">{ passwordErr 
-                    ? passwordErr 
-                    : '' }</small>
-            </div>
-
-            <button type='button' className='login-btn' onClick={this.submitLogin.bind(this)}>Logg Inn</button>
-        </div> 
-    </div>
-    )
-}
-}
 
 LoginForm.propTypes = {
     login: PropTypes.func.isRequired,

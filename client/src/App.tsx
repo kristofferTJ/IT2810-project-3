@@ -13,7 +13,6 @@ import LoginPage from "./Pages/LoginPage";
 
 
 function App() {
-
   
   const dispatch = useDispatch()
   const restaurant = useSelector((state: any)  => state.restaurant)

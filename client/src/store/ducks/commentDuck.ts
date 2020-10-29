@@ -46,18 +46,18 @@ export const saveComment = ({comment, restaurant}: commentType) => async (dispat
             'Content-Type' : 'application/json'
         }
     }
-
+    console.log(comment)
     const body = JSON.stringify({comment})
 
     try {
-        const response = await axios.post(`http://localhost:8000/api/restaurant/comment/${restaurant._id}`, body, config)
+        const response = await axios.put(`http://localhost:8000/api/restaurant/comment/${restaurant._id}`, body, config)
 
         dispatch({
             type: UPDATE_COMMENT,
-            payload: response.data
+            payload: response
         })
     } catch(error) {
-        console.log(error)
+        console.log("Dette gikk dårlig")
 
     }
 }
