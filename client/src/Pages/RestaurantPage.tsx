@@ -4,7 +4,9 @@ import Header from "../components/Header/Header";
 import Rating  from "../components/Review/Rating";
 import Reviews  from "../components/Review/Reviews";
 
+
 function RestaurantPage() {
+  
   return (
     <div className="App">
       <Header></Header>

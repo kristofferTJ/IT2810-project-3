@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './Filtermenu.css';
 import M from 'materialize-css';
 import { updateRegionFilter } from '../../store/ducks/regionFilterDuck';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchRestaurants } from '../../store/ducks/restaurantDuck';
+import { useDispatch } from 'react-redux';
 import { updateCuisineFilter } from '../../store/ducks/cuisineFilterDuck';
-import { updateParameter } from 'typescript';
 import { updatePriceFilter } from '../../store/ducks/priceFilterDuck';
 
 

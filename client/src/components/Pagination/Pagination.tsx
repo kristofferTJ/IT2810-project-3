@@ -1,6 +1,4 @@
-import React, {useState} from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { updateSkip } from '../../store/ducks/skipDuck';
+import React from 'react'
 import PaginationButton from './PaginationButton';
 
 export default function Pagination() {
