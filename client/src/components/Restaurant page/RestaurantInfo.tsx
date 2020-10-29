@@ -1,114 +1,81 @@
 import React, { useEffect, useState } from "react";
 import "./RestaurantInfo.css";
-import star from "../../images/star.svg";
-import location from "../../images/location.svg";
 import { IRestaurant } from "../../../../backend/models/Restaurant";
-import Header from '../Header/Header';
 import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from "react-redux";
-import { fetchRestaurants } from '../../store/ducks/restaurantDuck';
-import axios from "axios";
+import axios from 'axios';
+import history from '../../history';
 
+interface IParams {
+  name: string;
+}
 
 
 function RestaurantInfo() {
-
-  const name = useParams()  
-
-  const n = {name}.name
-  console.log(JSON.stringify(n))
-  
-  // const restaurant: IRestaurant[] = useSelector((state: any)  => state.restaurant)
-
-  const [restaurant, setRestaurant] = useState<IRestaurant>();
+ 
+  const [restaurant, setRestaurant] = useState<IRestaurant[]>();
+  const params: IParams = useParams()  
 
 
   useEffect(() => {
-    const getRestaurant  = async() => {
-      const api_url = (`http://localhost:8000/api/restaurant/filter/?skip=${0 + `&name=`+ JSON.stringify(n)}`);
-      await axios.get(api_url).then(response => setRestaurant(response.data.DATA))
-    }
-    getRestaurant()
-    console.log(restaurant)
-  })
-
-  // const riktig = restaurant.find((value:IRestaurant) => (value.name === JSON.stringify(name)))
+      const getRestaurant = async() => {
+        const api_URL = (`http://localhost:8000/api/restaurant/filter/?skip=0&name=${params.name}`);
+        await axios.get(api_URL).then(response => {setRestaurant(response.data)})
+      }
+      getRestaurant();
+  }, [])
 
 
-  
-  // const res = {
-  //   name: "Olivia",
-  //   stars: 2,
-  //   region: "Norway",
-  //   city: "Trondheim",
-  //   cuisine: "Italian",
-  //   price: 3,
-  //   url: "https://oliviarestauranter.no/#!/home",
-  // };
+/*
+   let image_path: string = '';  
 
+    try {  
+        image_path = require('../../images/'+restaurant.cuisine+'.jpg') 
+     
+      }
+    catch(err){  
+       image_path = require('../../images/Default.jpg');  //set default image path
+   }
+*/
+   
 
   return (
     <div>
-    <Header></Header>
-    <div className="main">
-      <h1>{restaurant!.name}</h1>
-      {restaurant!.stars === 1 ? (
-        <img src={star} width="30" height="30"></img>
-      ) : (
-        ""
-      )}
-      {restaurant!.stars === 2 ? (
-        <div>
-          <img src={star} width="30" height="30"></img>
-          <img src={star} width="30" height="30"></img>
+        <div className="section">
+        <a onClick={() => history.push('/restaurants')}><i className="material-icons medium left">navigate_before</i></a>
+          {restaurant?.map((restaurant: IRestaurant) => (
+            <div className="container">
+                <h3 className="center">{restaurant!.name}</h3>
+                <div className="restaurantcontainer">
+                <div className="restaurantbox"> 
+                  <div className="restaurant-image">
+                  <img src={require('../../images/'+restaurant.cuisine+'.jpg')}
+                      alt="Italian"
+                      width="250" 
+                      style={{ marginTop: 10}}></img> 
+                  </div> 
+                  <div>
+                    <p className="bold">{restaurant.cuisine}</p>
+                    <p><i className="material-icons">star</i>
+                  {restaurant.stars>= 2 && <i className="material-icons">star</i>}
+                  {restaurant.stars>= 3 && <i className="material-icons">star</i>}</p>
+                  <p className="bold">Price: {restaurant.price}</p>
+                    <i className="material-icons">location_on</i><span>{restaurant.city}</span><span>, </span>
+                    <span>{restaurant.region}</span>
+                  </div>
+                    </div>
+                      <div className="divider"></div>
+                      <div className="info-box">
+                        <h6 className="bold">Additional information:</h6>
+                        
+                        <p>This restaurant got an michelin star in the year: {restaurant.year}</p>
+                        <a href={restaurant!.url}>Visit website</a>
+                      </div>
+                    </div>
+                      
+                </div>    
+          ))}
+          {restaurant?.length===0 ? <h2>ERROR: Can not fecth restaurant from database</h2> : ""}
         </div>
-      ) : (
-        ""
-      )}
-      {restaurant!.stars === 3 ? (
-        <div>
-          <img src={star} width="30" height="30"></img>
-          <img src={star} width="30" height="30"></img>
-          <img src={star} width="30" height="30"></img>
-        </div>
-      ) : (
-        ""
-      )}
-      <div className="content">
-        <div className="picture">
-          <img
-            src={require("../../images/Italian.jpg")}
-            alt="Italian"
-            style={{ marginTop: 10 }}
-          ></img>
-        </div>
-        <div className="info">
-          <div className="attribute">
-            <div className="font">
-              <img src={location} width="20px" height="20px"></img>
-            </div>
-            {restaurant!.region}
-          </div>
-          <div className="attribute">
-            <div className="font">
-              <img src={location} width="20px" height="20px"></img>
-            </div>
-            {restaurant!.city}
-          </div>
-          <div className="attribute">
-            <div className="font">Cuisine: </div>
-            {restaurant!.cuisine}
-          </div>
-          <div className="attribute">
-            <div className="font">Price: </div>
-            {restaurant!.price}
-          </div>
-          <div className="attribute">
-            <a href={restaurant!.url}>Hjemmeside</a>
-          </div>
-        </div>
-      </div>
-    </div>
     </div>
   );
 }

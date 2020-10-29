@@ -15,22 +15,20 @@ function Restaurants() {
     const cuisineFilter = useSelector((state: any)  => state.cuisineFilter)
     const search = useSelector((state: any)  => state.search)
     const sortBy = useSelector((state: any)  => state.sorting)
+    const skip = useSelector((state: any) => state.skip)
 
 
     useEffect(() => {
         dispatch(
-            fetchRestaurants(0, regionFilter, cuisineFilter, priceFilter , search, sortBy.sortBy, sortBy.ascending)
+            fetchRestaurants(skip, regionFilter, cuisineFilter, priceFilter , search, sortBy.sortBy, sortBy.ascending)
         );
-    }, [fetchRestaurants, regionFilter, cuisineFilter, priceFilter, search, sortBy])
-
-
+    }, [fetchRestaurants, regionFilter, cuisineFilter, priceFilter, search, sortBy, skip])
 
     return(
         <section className="section section-icons gray lighten-4 center">
             <div className="container">
                 <div className="restaurantlist">
-                    <div className="row">
-                    <div className="col s12 m6">
+                    
                     {restaurant?.map((restaurant: IRestaurant) => (
                         <RestaurantObject
                         key={restaurant._id}
@@ -38,8 +36,7 @@ function Restaurants() {
                         ></RestaurantObject>
                     ))}
                     </div>
-                </div>
-                </div>
+               
             </div>
         </section>
     )

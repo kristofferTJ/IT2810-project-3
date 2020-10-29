@@ -1,0 +1,27 @@
+#reviewContainer{
+    border: solid; 
+    border-color: lightgrey;
+    border-width: 0.5px;
+    padding: 10px;
+}
+
+.comment {
+    text-align: left;
+  }
+
+.username{
+    font-weight: bold;
+}
+
+#ratingContainer{
+    padding: 5px;  
+}
+
+.rating{
+    text-decoration: underline;
+}
+
+.ratingText{
+    text-align: left;
+    font-weight: bold;
+}

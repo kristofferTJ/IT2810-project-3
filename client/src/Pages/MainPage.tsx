@@ -2,7 +2,6 @@ import React from "react";
 import Header from "../components/Header/Header";
 import Filtermenu from "../components/Filtermenu/Filtermenu";
 import "./MainPage.css";
-// import {RestaurantList} from '../components/RestaurantList/RestaurantList';
 import Restaurants from '../components/RestaurantList/Restaurants';
 import Pagination from '../components/Pagination/Pagination';
 import Searchbar from '../components/Searchbar/Searchbar';
@@ -18,10 +17,10 @@ function MainPage() {
             <div className="container">
                 <div className="row">
                     <div className="col s12">
-                        <h5>Search restaurants:</h5>
+                        <h5 className="center">Search restaurants:</h5>
                         <div id="search-field-input">
-                          <div className="col s10 right"><Searchbar></Searchbar></div>
-                          <div ><Sortingbutton></Sortingbutton></div>
+                          <div className="col s10"><Searchbar></Searchbar></div>
+                          <div><Sortingbutton></Sortingbutton></div>
                         </div>
                     </div>
                 </div>
@@ -30,9 +29,10 @@ function MainPage() {
       <div className="content">
           <Filtermenu></Filtermenu>
           <div className="container">
-            {/* <RestaurantList></RestaurantList> */}
             <Restaurants></Restaurants>
-            <Pagination></Pagination>
+            <div className="pagination">
+              <Pagination></Pagination>
+            </div>
           </div>
       </div>
     </div>
