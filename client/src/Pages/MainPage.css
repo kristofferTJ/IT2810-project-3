@@ -9,5 +9,8 @@
 .content{
     display: flex;
     flex-direction: row;
-  
+  }
+
+  .pagination{
+      text-align: center;
   }

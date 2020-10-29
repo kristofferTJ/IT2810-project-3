@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './Filtermenu.css';
 import M from 'materialize-css';
 import { updateRegionFilter } from '../../store/ducks/regionFilterDuck';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchRestaurants } from '../../store/ducks/restaurantDuck';
+import { useDispatch } from 'react-redux';
 import { updateCuisineFilter } from '../../store/ducks/cuisineFilterDuck';
-import { updateParameter } from 'typescript';
 import { updatePriceFilter } from '../../store/ducks/priceFilterDuck';
 
 
@@ -29,20 +27,6 @@ export default function Filtermenu() {
     }, [])
 
     const dispatch = useDispatch();
-    const restaurant = useSelector((state: any)  => state.restaurant)
-    const regionFilter = useSelector((state: any)  => state.regionFilter)
-    const priceFilter = useSelector((state: any)  => state.priceFilter)
-    const cuisineFilter = useSelector((state: any)  => state.cuisineFilter)
-    const search = useSelector((state: any)  => state.search)
-    const sortBy = useSelector((state: any)  => state.sorting)
-
-
-    useEffect(() => {
-        dispatch(
-            fetchRestaurants(0, regionFilter, cuisineFilter, priceFilter , search, sortBy.sortBy, sortBy.ascending)
-        );
-    }, [fetchRestaurants, regionFilter, cuisineFilter, priceFilter, search, sortBy])
-
 
 
     return(
@@ -52,6 +36,7 @@ export default function Filtermenu() {
                     <div className="collapsible-header">
                     <i className="material-icons">map</i>
                     Region
+                    <i className="material-icons">arrow_drop_down</i>
                     </div>
                     <div className="collapsible-body"><p>
                     <form action="#">
@@ -73,6 +58,33 @@ export default function Filtermenu() {
                             <span>Chicago</span>
                         </label>
                         </p>
+                        <p>
+                        <label>
+                            <input type="checkbox" className="filled-in" onChange={() => dispatch(updateRegionFilter("Denmark"))}/>
+                            <span>Denmark</span>
+                        </label>
+                        </p>
+                        <p></p>
+                        <p>
+                        <label>
+                            <input type="checkbox" className="filled-in" onChange={() => dispatch(updateRegionFilter("New York City"))}/>
+                            <span>New York</span>
+                        </label>
+                        </p>
+                        <p>
+                        <label>
+                            <input type="checkbox" className="filled-in" onChange={() => dispatch(updateRegionFilter("Norway"))}/>
+                            <span>Norway</span>
+                        </label>
+                        </p>
+                        <p></p>
+                        <p>
+                        <label>
+                            <input type="checkbox" className="filled-in" onChange={() => dispatch(updateRegionFilter("Sweden"))}/>
+                            <span>Sweden</span>
+                        </label>
+                        </p>
+                        <p></p>
                     </form>    
                     </p>
                     </div>
@@ -81,9 +93,16 @@ export default function Filtermenu() {
                     <div className="collapsible-header">
                     <i className="material-icons">local_dining</i>
                     Cuisine
+                    <i className="material-icons">arrow_drop_down</i>
                     </div>
                     <div className="collapsible-body"><p>
                     <form action="#">
+                        <p>
+                        <label>
+                            <input type="checkbox" className="filled-in" onChange={() => dispatch(updateCuisineFilter("American"))}/>
+                            <span>American</span>
+                        </label>
+                        </p>
                         <p>
                         <label>
                             <input type="checkbox" className="filled-in" onChange={() => dispatch(updateCuisineFilter("Asian"))}/>
@@ -98,8 +117,26 @@ export default function Filtermenu() {
                         </p>
                         <p>
                         <label>
+                            <input type="checkbox" className="filled-in" onChange={() => dispatch(updateCuisineFilter("Indian"))}/>
+                            <span>Indian</span>
+                        </label>
+                        </p>
+                        <p>
+                        <label>
                             <input type="checkbox" className="filled-in" onChange={() => dispatch(updateCuisineFilter("Japanese"))}/>
                             <span>Japanese</span>
+                        </label>
+                        </p>
+                        <p>
+                        <label>
+                            <input type="checkbox" className="filled-in" onChange={() => dispatch(updateCuisineFilter("Korean"))}/>
+                            <span>Korean</span>
+                        </label>
+                        </p>
+                        <p>
+                        <label>
+                            <input type="checkbox" className="filled-in" onChange={() => dispatch(updateCuisineFilter("Vegetarian"))}/>
+                            <span>Vegetarian</span>
                         </label>
                         </p>
                     </form> 
@@ -109,6 +146,7 @@ export default function Filtermenu() {
                     <div className="collapsible-header">
                     <i className="material-icons">monetization_on</i>
                     Price
+                    <i className="material-icons">arrow_drop_down</i>
                     </div>
                     <div className="collapsible-body"><p>
                     <form action="#">
@@ -128,6 +166,18 @@ export default function Filtermenu() {
                         <label>
                             <input type="checkbox" className="filled-in" onChange={() => dispatch(updatePriceFilter("$$$"))}/>
                             <span>$$$</span>
+                        </label>
+                        </p>
+                        <p>
+                        <label>
+                            <input type="checkbox" className="filled-in" onChange={() => dispatch(updatePriceFilter("$$$$"))}/>
+                            <span>$$$$</span>
+                        </label>
+                        </p>
+                        <p>
+                        <label>
+                            <input type="checkbox" className="filled-in" onChange={() => dispatch(updatePriceFilter("$$$$$"))}/>
+                            <span>$$$$$</span>
                         </label>
                         </p>
                     </form> 

@@ -1,12 +1,11 @@
-
 .input-field{
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-#search-input{
-    width: 500px;
+#icon_prefix{
+    width: 450px;
     height: 40px;
     border-radius: 5px;
     padding: 0px 5px;
@@ -17,14 +16,15 @@
     border-radius: 5px;
 }
 
-input.search-field {
-    font-weight: 500;
-    color: rgba(0, 0, 0, 0.54);
-    border-radius: 2px;
-    border: 0;
-    border-radius: 5px;
-    height: 36px;
-    padding: 8px 8px 8px 60px;
-    width: 200px;
-    background: #f7f7f7;
-  }
+.white{
+    overflow: hidden !important;   
+}
+
+/* for iphone */
+@media only screen and (max-width: 600px) {
+    #icon_prefix{
+        width: 200px;
+        height: 40px;
+    }
+}
+

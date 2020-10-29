@@ -1,8 +1,8 @@
 .filtermenu{
     display: flex;
     flex-direction: column;
-    width: 20%;
+    width: 200px;
+    margin: 20px;
 }
-
 
 
