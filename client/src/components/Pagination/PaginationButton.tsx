@@ -15,8 +15,6 @@ const PaginationButton: React.FC <PaginationInterface> = ({skipNumber, pageNumbe
 
     const handleClick = (skipNumber: number) => {
         dispatch(updateSkip(skipNumber))
-
-        console.log(active)
     }
     const skip = useSelector((state: any) => state.skip)
 
