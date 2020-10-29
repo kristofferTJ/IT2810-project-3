@@ -30,9 +30,10 @@ function MainPage() {
       <div className="content">
           <Filtermenu></Filtermenu>
           <div className="container">
-            {/* <RestaurantList></RestaurantList> */}
             <Restaurants></Restaurants>
-            <Pagination></Pagination>
+            <div className="pagination">
+              <Pagination></Pagination>
+            </div>
           </div>
       </div>
     </div>

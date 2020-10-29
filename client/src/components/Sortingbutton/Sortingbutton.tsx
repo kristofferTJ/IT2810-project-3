@@ -16,8 +16,27 @@ function Sortingbutton() {
         dropdown();
     }, [])
 
+    useEffect(() => {
+        const dropdown = () => {
+            var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems, {});
+    }
+        dropdown();
+    }, [])
+
+
     return (
         <div>
+        <div className="input-field col s12">
+            <select>
+            <option value="" disabled selected>Sort on</option>
+            <option value="1" onSelect={() => dispatch(setSorting("name", true))}>Name</option>
+            <option value="2" onSelect={() => dispatch(setSorting("price", false))}>Price</option>
+            <option value="3">Stars</option>
+            </select>
+            <label>Sorting</label>
+        </div>
+        {/* <div>
             <a id="sorting-button" className='dropdown-trigger btn #00b8d4 cyan accent-4' href='#' data-target='dropdown1'>Sort 
             <i className="material-icons">arrow_drop_down</i></a>
             <ul id='dropdown1' className='dropdown-content'>
@@ -25,6 +44,7 @@ function Sortingbutton() {
                 <li><a href="#!" onClick={() => dispatch(setSorting("price", false))}>Price</a></li>
                 <li><a href="#!" onClick={() => dispatch(setSorting("stars", false))}>Stars</a></li>
             </ul>     
+        </div> */}
         </div>
     )
 }
