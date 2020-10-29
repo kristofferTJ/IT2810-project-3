@@ -5,12 +5,12 @@ import { Restaurant } from '../../models/Restaurant';
 // import { IRating } from '../../models/Restaurant';
 // import { IComment } from '../../models/Restaurant';
 // const auth = require('../../middleware/auth');
-const fs = require('fs');
-const fastcsv = require('fast-csv');
+// const fs = require('fs');
+// const fastcsv = require('fast-csv');
 
-let stream = fs.createReadStream(
-  'C:/Users/Bruker/Downloads/archive/three-stars-michelin-restaurants.csv'
-);
+// let stream = fs.createReadStream(
+//   'C:/Users/Bruker/Downloads/archive/three-stars-michelin-restaurants.csv'
+// );
 
 // @route   GET api/restaurant
 // @desc    Get 20 restaurants
@@ -29,39 +29,39 @@ router.get('/', async (req: any, res: Response) => {
   }
 });
 
-router.post('/', async (req: Express.Request, res: Response) => {
-  let csvData: any = [];
-  let csvStream = fastcsv
-    .parse()
-    .on('data', function (data: any) {
-      csvData.push(
-        new Restaurant({
-          name: data[0],
-          year: data[1],
-          latitude: data[2],
-          longitude: data[3],
-          city: data[4],
-          region: data[5],
-          zipCode: data[6],
-          cuisine: data[7],
-          price: data[8],
-          url: data[9],
-          comments: [],
-          stars: 3,
-        })
-      );
-    })
-    .on('end', function () {
-      // remove the first line: header
-      csvData.shift();
-      Restaurant.insertMany(csvData);
+// router.post('/', async (req: Express.Request, res: Response) => {
+//   let csvData: any = [];
+//   let csvStream = fastcsv
+//     .parse()
+//     .on('data', function (data: any) {
+//       csvData.push(
+//         new Restaurant({
+//           name: data[0],
+//           year: data[1],
+//           latitude: data[2],
+//           longitude: data[3],
+//           city: data[4],
+//           region: data[5],
+//           zipCode: data[6],
+//           cuisine: data[7],
+//           price: data[8],
+//           url: data[9],
+//           comments: [],
+//           stars: 3,
+//         })
+//       );
+//     })
+//     .on('end', function () {
+//       // remove the first line: header
+//       csvData.shift();
+//       Restaurant.insertMany(csvData);
 
-      console.log('heihei');
-    });
+//       console.log('heihei');
+//     });
 
-  stream.pipe(csvStream);
-  res.send('dette gikk bra');
-});
+//   stream.pipe(csvStream);
+//   res.send('dette gikk bra');
+// });
 
 // @route   PUT api/restaurant/rate/:restaurant_id
 // @desc    Rate restaurant
@@ -102,7 +102,7 @@ router.post('/', async (req: Express.Request, res: Response) => {
 
 // @route   PUT api/restaurant/comment/:restaurant_id
 // @desc    comment on restaurant
-// @access  Private
+// @access  Public
 router.put('/comment/:restaurant_id', async (req: any, res: Response) => {
   const { comment } = req.body;
 
@@ -253,7 +253,6 @@ router.get('/filter', async (req: any, res: Response) => {
       $regex: nameo,
       $options: 'i',
     };
-
     const restaurant = await Restaurant.find(filter)
       .sort(sort)
       .skip(skipAmount)
