@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from "../components/Header/Header";
 import Slides from "../components/Slides/Slides";
+import Footer from "../components/Footer/Footer";
 import history from "../history";
 import "./StartPage.css";
 
@@ -14,6 +15,7 @@ function StartPage() {
         onClick={() => history.push('/Restaurants')}>
           <i className="material-icons right">keyboard_arrow_right</i>Discover restaurants</a>
       </div>
+      <Footer></Footer>
     </div>
   )
 }

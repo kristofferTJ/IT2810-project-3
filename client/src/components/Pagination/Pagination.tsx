@@ -23,7 +23,7 @@ export default function Pagination() {
             <PaginationButton skipNumber={60} pageNumber={4}></PaginationButton>
             <PaginationButton skipNumber={80} pageNumber={5}></PaginationButton>
             <PaginationButton skipNumber={100} pageNumber={6}></PaginationButton>
-            <li className="waves-effect" ><a href="#!" onClick={() => dispatch(updateSkip(skip + 20))}><i className="material-icons">chevron_right</i></a></li>
+            <li className={skip===0 ? "disabled" : "waves-effect"} ><a href="#!" onClick={() => dispatch(updateSkip(skip + 20))}><i className="material-icons">chevron_right</i></a></li>
         </ul>
     )
 }

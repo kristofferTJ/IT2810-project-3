@@ -47,7 +47,7 @@ function RestaurantInfo() {
   return (
     <div>
         <div className="section">
-        <a onClick={() => history.push('/restaurants')}><i className="material-icons medium left">navigate_before</i></a>
+        <a id="navigate-button" onClick={() => history.push('/restaurants')}><i className="material-icons medium left">navigate_before</i></a>
           {restaurant?.map((restaurant: IRestaurant) => (
             <div className="container">
                 <h3 className="center">{restaurant!.name}</h3>
@@ -75,7 +75,6 @@ function RestaurantInfo() {
                       <div className="divider"></div>
                       <div className="info-box">
                         <h6 className="bold">Additional information:</h6>
-                        
                         <p>This restaurant got an michelin star in the year: {restaurant.year}</p>
                         <a href={restaurant!.url}>Visit website</a>
                       </div>

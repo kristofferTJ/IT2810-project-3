@@ -4,7 +4,6 @@ import RestaurantPage from "./Pages/RestaurantPage";
 import MainPage from "./Pages/MainPage";
 import StartPage from "./Pages/StartPage";
 import './App.css';
-import RestaurantInfo from "./components/Restaurant page/RestaurantInfo";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRestaurants } from "./store/ducks/restaurantDuck";
 import history from './history';
