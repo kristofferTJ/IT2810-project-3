@@ -1,4 +1,5 @@
 {
   "mongoURI": "mongodb+srv://Kristoffer:Kaffekopp98@project-3.xfimr.mongodb.net/Michelin?retryWrites=true&w=majority",
-  "jwtSecret": "mysecrettoken"
+  "jwtSecret": "mysecrettoken",
+  "DB_CONNECTION": "mongodb://admin:admin@it2810-41.idi.ntnu.no:27017/michelin?authSource=admin"
 }

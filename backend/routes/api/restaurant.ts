@@ -102,7 +102,7 @@ router.get('/', async (req: any, res: Response) => {
 
 // @route   PUT api/restaurant/comment/:restaurant_id
 // @desc    comment on restaurant
-// @access  Private
+// @access  Public
 router.put('/comment/:restaurant_id', async (req: any, res: Response) => {
   const { comment } = req.body;
 
@@ -253,7 +253,6 @@ router.get('/filter', async (req: any, res: Response) => {
       $regex: nameo,
       $options: 'i',
     };
-
     const restaurant = await Restaurant.find(filter)
       .sort(sort)
       .skip(skipAmount)
