@@ -1,1 +1,1 @@
-export const cuisineFilters = ['Asian', 'Italian', 'Japanese']
+export const cuisineFilters = ['American', 'Asian', 'Italian',  'Indian' ,'Japanese', 'Korean', 'Vegetarian']

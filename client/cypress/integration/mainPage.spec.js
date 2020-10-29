@@ -1,4 +1,5 @@
 import {cuisineFilters} from '../fixtures/cuisineFilters';
+import {sortingAlternatives} from '../fixtures/sortingAlternatives';
 
 describe('MainPage', () => {
     it('MainPage gets the correct restaurants', () => {
@@ -22,7 +23,7 @@ describe('MainPage', () => {
             .should('have.length', 3)
             cy.get('.collapsible-header').eq(1).click()
             for(let i=0; i<cuisineFilters.length; i++){
-                cy.get('span').eq(i+3).should('have.text', cuisineFilters[i])
+                cy.get('span').eq(i+11).should('have.text', cuisineFilters[i])
             }
         });
 
@@ -35,7 +36,10 @@ describe('MainPage', () => {
         });
 
         it('has sorting button with correct alternatives', () => {
-            cy.get('')
+            cy.get('.Sortingbutton').get('option').should('have.length', 4)
+            for(let i = 0; i<sortingAlternatives.length; i++){
+                cy.get('.Sortingbutton').get('option').eq(i+1).should('have.text', sortingAlternatives[i])
+            }
         })
     })
 

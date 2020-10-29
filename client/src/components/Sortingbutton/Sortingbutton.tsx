@@ -24,14 +24,16 @@ function Sortingbutton() {
         dropdown();
     }, [])
 
+    // let instance = M.FormSelect.getInstance(Sortingbutton);
+    // console.log(instance.getSelectedValues)
 
     return (
         <div>
         <div className="input-field col s12">
-            <select>
+            <select className="Sortingbutton" id="sortingButton" >
             <option value="" disabled selected>Sort on</option>
-            <option value="1" onSelect={() => dispatch(setSorting("name", true))}>Name</option>
-            <option value="2" onSelect={() => dispatch(setSorting("price", false))}>Price</option>
+            <option value="1" onClick={() => dispatch(setSorting("name", true))}>Name</option>
+            <option value="2" onClick={() => dispatch(setSorting("price", false))}>Price</option>
             <option value="3">Stars</option>
             </select>
             <label>Sorting</label>
