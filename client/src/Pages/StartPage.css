@@ -1,7 +1,9 @@
-#center-box{
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+.center-box{
+    text-align: center;
+    padding: 35px;
+}
+
+#discover-button{
+    border-radius: 10px;
+    width: 275px;
 }

@@ -11,7 +11,6 @@ function RestaurantPage() {
     <div className="App">
       <Header></Header>
       <RestaurantInfo></RestaurantInfo>
-      <Rating></Rating>
       <Reviews></Reviews>
     </div>
   );

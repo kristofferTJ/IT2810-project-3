@@ -30,7 +30,9 @@ function MainPage() {
           <Filtermenu></Filtermenu>
           <div className="container">
             <Restaurants></Restaurants>
-            <Pagination></Pagination>
+            <div className="pagination">
+              <Pagination></Pagination>
+            </div>
           </div>
       </div>
     </div>
