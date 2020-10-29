@@ -91,7 +91,7 @@ export default function Filtermenu() {
                 </li>
                 <li>
                     <div className="collapsible-header">
-                    <i className="material-icons">local_dining</i>
+                    <i className="material-icons">restaurant</i>
                     Cuisine
                     <i className="material-icons">arrow_drop_down</i>
                     </div>

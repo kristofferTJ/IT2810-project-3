@@ -17,7 +17,7 @@ function Slides() {
                     <li>
                         <img src={require('../../images/Food1.jpg')}/> 
                         <div className="caption center-align">
-                        <h3 className="food-text">Ready to find some gormet food?</h3>
+                        <h3 className="food-text">Ready to find some gourmet food?</h3>
                         <h5 className="light grey-text text-lighten-3">We have collected the worlds best restaurants in one place</h5>
                         </div>
                     </li>

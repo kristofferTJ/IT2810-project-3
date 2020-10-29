@@ -4,6 +4,7 @@ import { IRestaurant } from "../../../../backend/models/Restaurant";
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import history from '../../history';
+import { breakStatement, isBreakStatement } from "@babel/types";
 
 interface IParams {
   name: string;
@@ -25,17 +26,22 @@ function RestaurantInfo() {
   }, [])
 
 
-/*
-   let image_path: string = '';  
 
-    try {  
-        image_path = require('../../images/'+restaurant.cuisine+'.jpg') 
+   let image_path: string = 'Default';  
+
+  //   try {  
+  //       image_path = require('../../images/'+restaurant.cuisine+'.jpg') 
      
-      }
-    catch(err){  
-       image_path = require('../../images/Default.jpg');  //set default image path
-   }
-*/
+  //     }
+  //   catch(err){  
+  //      image_path = require('../../images/Default.jpg');  //set default image path
+  //  }
+
+   const restaurantnames: string[] = [
+     "American", "Asian", "Classic cuisine", "Contemporary", 
+     "Creative", "European contemporary", "Indian", "Italian", "Japanese",
+     "Korean", "Market cuisine", "Modern cuisine", "Vegetarian"
+   ]
    
 
   return (
@@ -48,7 +54,10 @@ function RestaurantInfo() {
                 <div className="restaurantcontainer">
                 <div className="restaurantbox"> 
                   <div className="restaurant-image">
-                  <img src={require('../../images/'+restaurant.cuisine+'.jpg')}
+                    {restaurantnames.map((name: string) => (
+                      image_path==="Default" ? (name===restaurant.cuisine ? image_path=name : "") : ""
+                    ))}
+                  <img src={require('../../images/'+image_path+'.jpg')}
                       alt="Italian"
                       width="250" 
                       style={{ marginTop: 10}}></img> 
