@@ -16,7 +16,7 @@ describe('Filter', () => {
         cy.contains('Cuisine').click();
         cy.contains('Italian').click();
         cy.wait(200)
-        // cy.get('.restaurantObject').should('length', 19);
+        cy.get('.card-title').should('length', 19);
         for(let i = 0; i < 19; i++){
             cy.get('.card-title').eq(i).should('have.text', ItalianRestaurantsName[i]);
         }

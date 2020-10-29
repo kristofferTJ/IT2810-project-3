@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Reviews.css';
 import Comment from './Comment';
-import { IComment, IRestaurant } from "../../../../backend/models/Restaurant";
+import {IRestaurant } from "../../../../backend/models/Restaurant";
 import { useParams } from "react-router-dom";
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
@@ -29,7 +29,6 @@ function Reviews() {
     
 
     function commentSave() {
-        console.log(comment)
         restaurant?.map(restaurant => dispatch(saveComment({comment, restaurant})))
     }
 
@@ -42,11 +41,11 @@ function Reviews() {
                 <div id="reviewContainer" className="z-depth-1">
                     <h5 className="comment">Comments:</h5>
                     <div className="section">
-                        {restaurant?.map((restaurant: IRestaurant) => (restaurant.comments.map((comment: IComment) => (
+                        {restaurant?.map((restaurant: IRestaurant) => (restaurant.comments.map((comment: string) => (
                        <Comment
-                       commentObject={comment.comment}
+                       commentObject={comment}
                        ></Comment>
-                            ))))}
+                            ))))} 
                     </div>
                 </div>
                 <div>
