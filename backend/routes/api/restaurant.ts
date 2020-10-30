@@ -1,4 +1,4 @@
-import express, { Response, Request } from 'express';
+import express, { Response } from 'express';
 const router = express.Router();
 import { Restaurant } from '../../models/Restaurant';
 // import { IUser } from '../../models/User';
@@ -15,7 +15,7 @@ import { Restaurant } from '../../models/Restaurant';
 // @route   GET api/restaurant
 // @desc    Get 20 restaurants
 // @access  Pulic
-router.get('/', async (req: Request, res: Response) => {
+router.get('/', async (req: any, res: Response) => {
   try {
     const restaurant = await Restaurant.find().limit(20);
     if (!restaurant) {
@@ -103,7 +103,7 @@ router.get('/', async (req: Request, res: Response) => {
 // @route   PUT api/restaurant/comment/:restaurant_id
 // @desc    comment on restaurant
 // @access  Public
-router.put('/comment/:restaurant_id', async (req: Request, res: Response) => {
+router.put('/comment/:restaurant_id', async (req: any, res: Response) => {
   const { comment } = req.body;
 
   // const newComment = {
