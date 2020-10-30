@@ -106,6 +106,8 @@ Deretter skriver du i terminalen:
     cd client
     npm run cypress
 
+Trykk på “Run all specs” i vinduet som dukker opp
+
 
 # Inspirasjon (acknowledgement)
 
