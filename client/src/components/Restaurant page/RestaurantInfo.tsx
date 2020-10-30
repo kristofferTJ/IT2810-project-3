@@ -42,6 +42,13 @@ function RestaurantInfo() {
      "Creative", "European contemporary", "Indian", "Italian", "Japanese",
      "Korean", "Market cuisine", "Modern cuisine", "Vegetarian"
    ]
+
+   restaurant?.map((restaurant: IRestaurant) => {
+    restaurantnames.map((name: string) => (
+      image_path==="Default" ? (name===restaurant.cuisine ? image_path=name : "") : ""
+    ))
+  
+   })
    
   //  onClick={() => history.push('/restaurants')}
 
@@ -55,9 +62,6 @@ function RestaurantInfo() {
                 <div className="restaurantcontainer">
                 <div className="restaurantbox"> 
                   <div className="restaurant-image">
-                    {restaurantnames.map((name: string) => (
-                      image_path==="Default" ? (name===restaurant.cuisine ? image_path=name : "") : ""
-                    ))}
                   <img src={require('../../images/'+image_path+'.jpg')}
                       alt="Italian"
                       width="250" 
@@ -76,7 +80,6 @@ function RestaurantInfo() {
                       <div className="divider"></div>
                       <div className="info-box">
                         <h6 className="bold">Additional information:</h6>
-                        
                         <p>This restaurant got an michelin star in the year: {restaurant.year}</p>
                         <a href={restaurant!.url}>Visit website</a>
                       </div>
