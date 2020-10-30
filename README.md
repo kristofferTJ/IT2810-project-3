@@ -39,7 +39,6 @@ Du kan nå åpne prosjektet på:
 
 http://localhost:3000/
 
-# Funksjonalitet
 
 # Frontend/design
 Vi har brukt Materialize CSS til styling av nettsiden som er et responsivt CSS bibliotek. 
@@ -55,7 +54,6 @@ Vi valgte å benytte oss av MERN stacken. Vi ønsket å benytte oss av en NoSQL 
 det enkelt å bygge ut APIer uten å skrive mye kode. React er en veldokumentert biblioteket som gjør det enkelt å bygge ut web-komponenter uten mye
 komplikasjoner ved håndtering av staten. 
 
-## React
 
 ## Redux
 
@@ -171,5 +169,4 @@ Deretter skriver du i terminalen:
     npm run cypress
 
 
-# Inspirasjon (acknowledgement)
 
