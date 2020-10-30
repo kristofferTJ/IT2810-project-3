@@ -55,7 +55,7 @@ action creators for denne staten. Oversikt over “ducks” brukt i prosjektet:
 
 ## Database
 
-#Testing
+# Testing
 
 ## Systematisk enhetstesting
 
