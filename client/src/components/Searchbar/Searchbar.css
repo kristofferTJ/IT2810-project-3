@@ -1,0 +1,30 @@
+.input-field{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#icon_prefix{
+    width: 450px;
+    height: 40px;
+    border-radius: 5px;
+    padding: 0px 5px;
+}
+
+#search-button{
+    height: 40px;
+    border-radius: 5px;
+}
+
+.white{
+    overflow: hidden !important;   
+}
+
+/* for iphone */
+@media only screen and (max-width: 600px) {
+    #icon_prefix{
+        width: 200px;
+        height: 40px;
+    }
+}
+

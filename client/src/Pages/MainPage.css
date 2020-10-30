@@ -1,0 +1,16 @@
+#search-field-input{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    align-items: center;
+}
+
+
+.content{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .pagination{
+      text-align: center;
+  }

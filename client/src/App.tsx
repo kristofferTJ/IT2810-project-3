@@ -1,25 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import RestaurantPage from "./Pages/RestaurantPage";
+import MainPage from "./Pages/MainPage";
+import StartPage from "./Pages/StartPage";
 import './App.css';
+import { useDispatch, useSelector } from "react-redux";
+import { fetchRestaurants } from "./store/ducks/restaurantDuck";
+import { stateType } from "./components/RestaurantList/Restaurants";
+import { updateCounter } from "./store/ducks/counterDuck";
+
 
 function App() {
+  
+  const dispatch = useDispatch()
+
+  // Gets all the states from redux that is needed to fetch the correct restaurants
+  const regionFilter = useSelector((state: stateType)  => state.regionFilter)
+  const cuisineFilter = useSelector((state: stateType)  => state.cuisineFilter)
+  const priceFilter = useSelector((state: stateType)  => state.priceFilter)
+  const search = useSelector((state: stateType)  => state.search)
+  const sortBy = useSelector((state: stateType)  => state.sorting)
+  const skip = useSelector((state: stateType) => state.skip)
+ 
+  // Fetches the restaurants 
+  useEffect(() => {
+    dispatch(
+        fetchRestaurants(skip, regionFilter, cuisineFilter, priceFilter, search, sortBy.sortBy, sortBy.ascending)
+    );
+}, [fetchRestaurants, regionFilter, cuisineFilter, priceFilter, search, sortBy, skip])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+        <Switch>
+        <Route exact path="/Restaurants" component={MainPage}></Route>
+        <Route exact path="/" component={StartPage}></Route>
+        <Route exact path="/restaurant/:name" component={RestaurantPage}></Route>
+      </Switch>
+    </Router>
   );
 }
 

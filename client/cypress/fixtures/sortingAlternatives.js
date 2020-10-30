@@ -1,0 +1,1 @@
+export const sortingAlternatives = ['Price', 'Stars', 'Name']
