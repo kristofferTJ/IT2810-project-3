@@ -5,7 +5,6 @@ import './Sortingbutton.css';
 
 function Sortingbutton() {
 
-    
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -24,6 +23,7 @@ function Sortingbutton() {
         dropdown();
     }, [])
 
+    // Updates the sortBy state
     function updateSortingbutton(value: string){
         let ascending: boolean;
         value === "name" ? ascending=true : ascending=false;
@@ -39,7 +39,6 @@ function Sortingbutton() {
             <option value="price">Price</option>
             <option value="stars">Stars</option>
             <option value="name">Name</option>
-
             </select>
             <label>Sort on</label>
         </div>

@@ -5,8 +5,6 @@ type Props = {
     commentObject: string
   }
 
-  
-  
 function Comment({commentObject}: Props) {
     return (
         <div>
