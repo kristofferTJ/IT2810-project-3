@@ -1,1 +1,1 @@
-export const sortingAlternatives = [ 'Name', 'Price', 'Stars']
+export const sortingAlternatives = ['Price', 'Stars', 'Name']
