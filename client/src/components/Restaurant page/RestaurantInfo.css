@@ -29,3 +29,6 @@
   margin: 5px;
 }
 
+#navigate-button:hover {
+  cursor: pointer;
+}

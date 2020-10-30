@@ -2,6 +2,7 @@ import React from "react";
 import RestaurantInfo from "../components/Restaurant page/RestaurantInfo";
 import Header from "../components/Header/Header";
 import Reviews  from "../components/Review/Reviews";
+import Footer from "../components/Footer/Footer";
 
 
 function RestaurantPage() {
@@ -11,6 +12,7 @@ function RestaurantPage() {
       <Header></Header>
       <RestaurantInfo></RestaurantInfo>
       <Reviews></Reviews>
+      <Footer></Footer>
     </div>
   );
 }
