@@ -8,7 +8,6 @@ interface IParams {
   name: string;
 }
 
-
 function RestaurantInfo() {
  
   const [restaurant, setRestaurant] = useState<IRestaurant[]>();

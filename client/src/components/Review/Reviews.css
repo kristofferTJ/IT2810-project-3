@@ -9,18 +9,6 @@
     text-align: left;
   }
 
-.username{
-    font-weight: bold;
-}
-
-#ratingContainer{
-    padding: 5px;  
-}
-
-.rating{
-    text-decoration: underline;
-}
-
 .ratingText{
     text-align: left;
     font-weight: bold;

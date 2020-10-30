@@ -47,15 +47,13 @@ function Restaurants() {
         <section className="section section-icons gray lighten-4 center">
             <div className="container">
                 <div className="restaurantlist">
-                    
                     {restaurant?.map((restaurant: IRestaurant) => (
                         <RestaurantObject
                         key={restaurant._id}
                         restaurant={restaurant}
                         ></RestaurantObject>
                     ))}
-                    </div>
-               
+                </div>
             </div>
         </section>
     )

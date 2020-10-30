@@ -37,12 +37,8 @@ test('Check if restaurant is generated correctly', () => {
     expect(
     component.contains(
       <RestaurantObject
-        key={"5f8d931427a83122bcfdd8c3"}
-        restaurant={mockRestaurant}
-      />
-    )
-  ).toBe(true);
+        key={"5f9ac32f95120b7a2cea9218"}
+        restaurant={mockRestaurant}/>)).toBe(true);
 });
     
-})
 

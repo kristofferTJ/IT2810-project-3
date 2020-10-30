@@ -15,7 +15,7 @@ function Reviews() {
 
     const dispatch = useDispatch();
     const [restaurant, setRestaurant] = useState<IRestaurant[]>();
-    const params: IParams = useParams()  
+    const params: IParams = useParams();  
     
     
     useEffect(() => {
