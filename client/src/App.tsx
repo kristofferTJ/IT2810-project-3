@@ -12,6 +12,8 @@ import { stateType } from "./components/RestaurantList/Restaurants";
 function App() {
   
   const dispatch = useDispatch()
+
+  // Gets all the states from redux that is needed to fetch the correct restaurants
   const regionFilter = useSelector((state: stateType)  => state.regionFilter)
   const cuisineFilter = useSelector((state: stateType)  => state.cuisineFilter)
   const priceFilter = useSelector((state: stateType)  => state.priceFilter)
@@ -19,6 +21,7 @@ function App() {
   const sortBy = useSelector((state: stateType)  => state.sorting)
   const skip = useSelector((state: stateType) => state.skip)
  
+  // Fetches the restaurants 
   useEffect(() => {
     dispatch(
         fetchRestaurants(skip, regionFilter, cuisineFilter, priceFilter, search, sortBy.sortBy, sortBy.ascending)

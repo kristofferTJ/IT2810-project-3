@@ -8,13 +8,15 @@ interface IParams {
   name: string;
 }
 
-
 function RestaurantInfo() {
  
   const [restaurant, setRestaurant] = useState<IRestaurant[]>();
+
+  // Gets the restaurant name from the URL 
   const params: IParams = useParams()  
 
 
+  // Gets the restaurant the user clicked on
   useEffect(() => {
       const getRestaurant = async() => {
         const api_URL = (`http://localhost:8000/api/restaurant/filter/?skip=0&name=${params.name}`);
@@ -32,6 +34,7 @@ function RestaurantInfo() {
      "Korean", "Market cuisine", "Modern cuisine", "Vegetarian"
    ]
 
+   // Checks if the restaurants cuisine has a picture, if not shows the deafult picture
    restaurant?.map((restaurant: IRestaurant) => {
       restaurantnames.map((name: string) => (
         image_path==="Default" ? (name===restaurant.cuisine ? image_path=name : "") : ""

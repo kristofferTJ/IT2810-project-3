@@ -21,7 +21,7 @@ function MainPage() {
                         <h5 className="center">Search restaurants:</h5>
                         <div id="search-field-input">
                           <div className="col s10"><Searchbar></Searchbar></div>
-                          <div><Sortingbutton></Sortingbutton></div>
+                          <div className="SortingButton"><Sortingbutton></Sortingbutton></div>
                         </div>
                     </div>
                 </div>
