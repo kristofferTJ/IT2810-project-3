@@ -157,7 +157,7 @@ end-to-end test som tester hovedsiden vår, mainPage. Denne sjekker at alle komp
 knapper for sortering og filtrering med riktig navn. 
 
 
-![End to End testing](end-to-end-testing.PNG "End-to-End testing")
+![End to End testing](end-2-end.PNG "End-to-End testing")
 
 
 
