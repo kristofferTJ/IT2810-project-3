@@ -76,7 +76,6 @@ function RestaurantInfo() {
                       <div className="divider"></div>
                       <div className="info-box">
                         <h6 className="bold">Additional information:</h6>
-                        
                         <p>This restaurant got an michelin star in the year: {restaurant.year}</p>
                         <a href={restaurant!.url}>Visit website</a>
                       </div>

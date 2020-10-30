@@ -6,6 +6,7 @@ import Restaurants from '../components/RestaurantList/Restaurants';
 import Pagination from '../components/Pagination/Pagination';
 import Searchbar from '../components/Searchbar/Searchbar';
 import Sortingbutton from '../components/Sortingbutton/Sortingbutton';
+import Footer from "../components/Footer/Footer";
 
 
 function MainPage() {
@@ -35,6 +36,7 @@ function MainPage() {
             </div>
           </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 }
