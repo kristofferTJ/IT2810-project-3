@@ -42,6 +42,10 @@ http://localhost:3000/
 
 ## Stack
 
+Vi valgte å benytte oss av MERN stacken. Vi ønsket å benytte oss av en NoSQL database(se database under). Express er et rammeverk fra Node som gjør
+det enkelt å bygge ut APIer uten å skrive mye kode. React er en veldokumentert biblioteket som gjør det enkelt å bygge ut web-komponenter uten mye
+komplikasjoner ved håndtering av staten. 
+
 ## React
 
 ## Redux
@@ -75,7 +79,44 @@ action creators for denne staten. Oversikt over “ducks” brukt i prosjektet:
 
 ## Backend
 
+Vi installerte en MongoDB database på virtuell maskin (NTNU server) med data om alle Michelin-restauranter fra 2019. Vi ønsket å gi inntrykket av en informativ
+nettside til fordel for et forum for å diskutere hvor godt omdømme restaurantene har. Med dette i bakhodet så vi ikke behovet for å implementere muligheten for
+å generere en personlig profil med f.eks. rating-funksjonalitet, ettersom restaurantene allerede har et profesjonelt omdømme. Vi implementerte et REST API med
+Node.js og Express sammen med mongoose (for Mongodb objekt modellering).
+Vi har implementerte tre endepunkt: 
+
+    GET: http://localhost:8000/api/restaurant/filter/ 
+
+Henter all data om opptil 20 restauranter. Brukes til sortering etter enten navn, pris eller antall Michelin-stjerner. Brukes til filtrering etter søk av navn på
+restaurant og/eller pris/region/kjøkken.
+
+    PUT: http://localhost:8000/api/restaurant/comment/:restaurant_id
+
+Kommenterer på restauranten med oppgitt id i parameteren.
+
+    GET: http://localhost:8000/api/counter/
+
+Brukes for å bestemme hvor mange restauranter som passer til oppgitt filter. Dette tillater applikasjonen til å holde styr på antall sider med restauranter som må defineres.
+
+Første endepunkt sørger for å hente all data basert på oppgitt filter. Dette kunne i teorien blitt skilt ut som flere endepunkter men vi vurderte at det vil være enklere å hente
+ut den filtrert dataen gjennom ett endepunkt. Et viktig poeng er også at nytteverdien med å skape flere endepunkt for mer spesifikk uthenting av data var neglisjerbar. 
+
+Vi valgte å definere et endepunkt for å gi kommentarer på en restaurant. Ved hjelp av restauranten sin objekt-id, er det enkelt å lokalisere riktig restaurant i databasen for
+så å legge til ønsket kommentar i restauranten sin array med kommentarer.
+
+Vi valgte å skille ut tredje endepunkt for å registrere hvor mange restauranter som passer oppgitt filter. Dette kunne i teorien blitt gjort gjennom første endepunkt.
+Likevel er det ikke alltid er nødvendig å gjennomføre dette kallet hver gang første endepunkt kalles (f.eks. ved å bevege seg til neste side med restauranter).
+Vi valgte derfor å definere dette som et eget endepunkt. 
+
+Vi har valgt å benytte oss av REST api ettersom det er lett å skalere opp uten omfattende omstrukturering av prosjektet. REST apier er veldig fleksible og gjør det
+lettere å behandle og ta imot data med ulikt format.
+
+
 ## Database
+
+MongoDB er en noSQL database. Vi valgte å benytte oss av Mongodb til fordel for en relasjonsdatabase ettersom NoSQL databaser tilbyr mye frihet med hvordan
+dataene kan struktureres og lagres. Vi var avhengig av at restaurant-objektene kunne holde på store mengder data f.eks. et array av kommentarer.
+Mongoose er i tillegg en fantastisk nyttig modul fra Node som gjør det enkelt lagre, hente, endre og prosessere data.
 
 # Testing
 
@@ -105,8 +146,6 @@ Deretter skriver du i terminalen:
 
     cd client
     npm run cypress
-
-Trykk på “Run all specs” i vinduet som dukker opp
 
 
 # Inspirasjon (acknowledgement)
