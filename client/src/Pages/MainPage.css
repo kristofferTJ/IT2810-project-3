@@ -5,10 +5,10 @@
     align-items: center;
 }
 
-
 .content{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
   }
 
   .pagination{

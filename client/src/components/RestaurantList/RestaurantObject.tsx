@@ -11,12 +11,13 @@ type Props = {
 export const RestaurantObject: React.FC<Props> = ({ restaurant }) => {
 
   let image_path: string = '';  
-  
+
+ 
   try {  
-      image_path = require('../../images/'+restaurant.cuisine+'.jpg'); 
+      image_path = require('../../images/'+restaurant.cuisine+'.jpg'); //Tries to find image that match the restaurant cuisine 
       } 
   catch(err){  
-      image_path = require('../../images/Default.jpg');  //setter default image path
+      image_path = require('../../images/Default.jpg');  //Sets default image if it doesn't exist
   }
 
   return(

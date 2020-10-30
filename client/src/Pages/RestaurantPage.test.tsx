@@ -1,9 +1,7 @@
 import React from 'react';
 import RestaurantPage from './RestaurantPage';
 import RestaurantInfo from '../components/RestaurantInfo/RestaurantInfo';
-import Header from "../components/Header/Header";
 import Reviews  from "../components/Review/Reviews";
-import Footer from "../components/Footer/Footer";
 
 import { shallow } from 'enzyme'
 

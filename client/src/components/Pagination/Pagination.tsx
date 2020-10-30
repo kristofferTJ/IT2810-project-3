@@ -19,6 +19,7 @@ export default function Pagination() {
         pageNumber += 1;
     }
 
+    //Arrows in pagination disabled if you reach the end or start-page
     return(
         <ul className="pagination">
             <li className={skip===0 ? "disabled" : "waves-effect"} ><a href="#!" onClick={() => skip>0 ? dispatch(updateSkip(skip - 20)) : skip=0}><i className="material-icons">chevron_left</i></a></li>

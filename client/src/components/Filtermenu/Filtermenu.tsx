@@ -9,14 +9,7 @@ import { updatePriceFilter } from '../../store/ducks/priceFilterDuck';
 
 export default function Filtermenu() {
 
-    useEffect(() => {
-        const dropdown = () => {
-            var elems = document.querySelectorAll('.dropdown-trigger');
-            var instances = M.Dropdown.init(elems, {});    
-    }
-        dropdown();
-    }, [])
-
+    //function for making the filtermenu collapsible
     useEffect(() => {
         const open = () => {
             var elems = document.querySelectorAll('.collapsible.expandable');
@@ -28,7 +21,7 @@ export default function Filtermenu() {
 
     const dispatch = useDispatch();
 
-
+    //collapisple filtermenu
     return(
         <div className="filtermenu">
             <ul className="collapsible expandable">

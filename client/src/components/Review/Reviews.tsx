@@ -17,7 +17,7 @@ function Reviews() {
     const [restaurant, setRestaurant] = useState<IRestaurant[]>();
     const params: IParams = useParams();  
     
-    
+    //Gets restaurant
     useEffect(() => {
         const getRestaurant = async() => {
           const api_URL = (`http://localhost:8000/api/restaurant/filter/?skip=0&name=${params.name}`);
@@ -27,7 +27,7 @@ function Reviews() {
     }, [])
   
     
-
+    //Saves comment for restaurant
     function commentSave() {
         restaurant?.map(restaurant => dispatch(saveComment({comment, restaurant})))
     }

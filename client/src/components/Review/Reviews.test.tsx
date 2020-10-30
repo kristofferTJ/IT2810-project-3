@@ -2,13 +2,14 @@ import React from 'react';
 import Comment from './Comment';
 import Reviews from './Reviews';
 import { mount, shallow } from 'enzyme'
+import { string } from 'prop-types';
 
 
 jest.mock('react-redux', () => ({
     useDispatch: () => {},
     useSelector: () => ({
     }),
-    useParams: () => {}
+    useParams: () => { Credo : String }
   }));
 
 let mockData: string = "god mat"; //commentobject

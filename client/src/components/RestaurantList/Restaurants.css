@@ -5,6 +5,8 @@
     flex-wrap: wrap;
 }
 
+/*use flex-box with margin and min-width to make the restaurants add up next 
+to each other*/
 .card{
     flex: 1;
     margin: 20px !important;

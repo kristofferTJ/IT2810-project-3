@@ -8,22 +8,16 @@ function Sortingbutton() {
     
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        const dropdown = () => {
-            var elems = document.querySelectorAll('.dropdown-trigger');
-            var instances = M.Dropdown.init(elems, {});    
-    }
-        dropdown();
-    }, [])
-
+    //Function for dropdown in sortingbutton
     useEffect(() => {
         const dropdown = () => {
             var elems = document.querySelectorAll('select');
-        var instances = M.FormSelect.init(elems, {});
+            var instances = M.FormSelect.init(elems, {});
     }
         dropdown();
     }, [])
 
+    //Gets value to sort on
     function updateSortingbutton(value: string){
         let ascending: boolean;
         value === "name" ? ascending=true : ascending=false;

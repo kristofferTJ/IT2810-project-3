@@ -13,7 +13,7 @@ function RestaurantInfo() {
   const [restaurant, setRestaurant] = useState<IRestaurant[]>();
   const params: IParams = useParams()  
 
-
+  //Gets restaurantname from api
   useEffect(() => {
       const getRestaurant = async() => {
         const api_URL = (`http://localhost:8000/api/restaurant/filter/?skip=0&name=${params.name}`);
@@ -25,12 +25,14 @@ function RestaurantInfo() {
 
    let image_path: string = 'Default';  
 
+   //Collects names of all images in an array
    const restaurantnames: string[] = [
      "American", "Asian", "Classic cuisine", "Contemporary", 
      "Creative", "European contemporary", "Indian", "Italian", "Japanese",
      "Korean", "Market cuisine", "Modern cuisine", "Vegetarian"
    ]
 
+   //Tries to find picture that matches the restaurant cuisine, or uses defautl image
    restaurant?.map((restaurant: IRestaurant) => {
       restaurantnames.map((name: string) => (
         image_path==="Default" ? (name===restaurant.cuisine ? image_path=name : "") : ""
@@ -55,7 +57,7 @@ function RestaurantInfo() {
                   <div>
                     <p className="bold">{restaurant.cuisine}</p>
                     <p><i className="material-icons">star</i>
-                  {restaurant.stars>= 2 && <i className="material-icons">star</i>}
+                  {restaurant.stars>= 2 && <i className="material-icons">star</i>} 
                   {restaurant.stars>= 3 && <i className="material-icons">star</i>}</p>
                   <p className="bold">Price: {restaurant.price}</p>
                     <i className="material-icons">location_on</i><span>{restaurant.city}</span><span>, </span>

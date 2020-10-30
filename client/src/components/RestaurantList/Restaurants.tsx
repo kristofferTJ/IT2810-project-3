@@ -43,6 +43,8 @@ function Restaurants() {
         );
     }, [updateCounter, regionFilter, cuisineFilter, priceFilter, search])
 
+
+    //maps thorugh IRestaurant and prints out restaurantobjects
     return(
         <section className="section section-icons gray lighten-4 center">
             <div className="container">

@@ -2,6 +2,7 @@ import React, {useEffect} from 'react'
 
 function Slides() {
 
+    //Function for slides on start page
     useEffect(() => {
         const slide = () => {
             var elems = document.querySelectorAll('.slider');

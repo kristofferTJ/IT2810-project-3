@@ -13,7 +13,7 @@ let mockRestaurant: any;
 let component;
 
 test('Check if restaurant is generated correctly', () => {
-    mockRestaurant = [
+    mockRestaurant = 
         {
             _id:"5f8d931427a83122bcfdd8c3",
             name:"Credo",
@@ -31,14 +31,14 @@ test('Check if restaurant is generated correctly', () => {
             stars:1,
             __v:0
         }
-    ]
+    
 
     component = shallow(<Restaurants />);
     expect(
     component.contains(
       <RestaurantObject
         key={"5f9ac32f95120b7a2cea9218"}
-        restaurant={mockRestaurant}/>)).toBe(true);
+        restaurant ={mockRestaurant}/>)).toBe(true);
 });
     
 

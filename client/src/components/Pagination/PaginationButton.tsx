@@ -20,7 +20,7 @@ const PaginationButton: React.FC <PaginationInterface> = ({skipNumber, pageNumbe
     }
     const skip = useSelector((state: any) => state.skip)
 
-
+    //Checks if skip matches the number for the paginationbutton, and sets button to active
     useEffect(() => {
 
         const checkSkipNumber=() =>{
@@ -29,10 +29,9 @@ const PaginationButton: React.FC <PaginationInterface> = ({skipNumber, pageNumbe
 
         checkSkipNumber();
 
-        console.log(skip, skipNumber)
- 
     }, [skip])
 
+    //Button gets colour yellow when active 
     return (
         <li className={active ? "active #ffc107 amber" : "waves-effect"} onClick={() => handleClick(skipNumber)}><a>{pageNumber}</a></li>
     )
