@@ -5,7 +5,7 @@ export type sortingAction = {
     payload: string;
   };
 
-type sortingType = {
+export type sortingType = {
     sortBy: string;
     ascending: boolean;
 }

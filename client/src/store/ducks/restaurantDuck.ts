@@ -8,16 +8,6 @@ export type RestaurantAction = {
   payload: IRestaurant[];
 };
 
-type fetchRestaurantType = {
-  skip: number,
-  regionFilter: string[],
-  cuisineFilter: string[],
-  priceFilter: string[],
-  search: string,
-  sortBy: string,
-  ascending: boolean
-}
-
 // Actions
 
 const GET_RESTAURANTS_SUCCESS = 'GET_RESTAURANTS_SUCCESS';
@@ -57,13 +47,13 @@ export function fetchRestaurantsFailure() {
 }
 
 export function fetchRestaurants(
-  skip: 0,
-  regionFilter: [],
-  cuisineFilter: [],
-  priceFilter: [],
-  search: '',
-  sortBy: '',
-  ascending: true
+  skip: number = 0,
+  regionFilter: string[] = [],
+  cuisineFilter: string[] = [],
+  priceFilter: string[] = [],
+  search: string = '',
+  sortBy: string = '',
+  ascending: boolean = true
 ) {
   const searchString = search ? `&name=${search}` : '';
   const sortString = sortBy ? `&sort=${sortBy}` : '';
