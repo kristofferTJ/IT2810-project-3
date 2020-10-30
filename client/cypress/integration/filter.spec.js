@@ -1,4 +1,3 @@
-import { ItalianRestaurants } from '../fixtures/ItalianRestaurants';
 import { ItalianRestaurantsName } from '../fixtures/ItalianRestaurantsName';
 
 describe('Filter', () => {
@@ -16,8 +15,8 @@ describe('Filter', () => {
         cy.contains('Cuisine').click();
         cy.contains('Italian').click();
         cy.wait(200)
-        cy.get('.card-title').should('length', 19);
-        for(let i = 0; i < 19; i++){
+        cy.get('.card-title').should('length', 18);
+        for(let i = 0; i < 18; i++){
             cy.get('.card-title').eq(i).should('have.text', ItalianRestaurantsName[i]);
         }
    });

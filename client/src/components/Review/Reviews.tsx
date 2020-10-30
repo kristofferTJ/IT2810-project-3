@@ -15,9 +15,11 @@ function Reviews() {
 
     const dispatch = useDispatch();
     const [restaurant, setRestaurant] = useState<IRestaurant[]>();
+
+    // Gets the name of the restaurant from the URL
     const params: IParams = useParams()  
     
-    
+    //Gets the restaurant with the correct name
     useEffect(() => {
         const getRestaurant = async() => {
           const api_URL = (`http://localhost:8000/api/restaurant/filter/?skip=0&name=${params.name}`);
@@ -27,7 +29,7 @@ function Reviews() {
     }, [])
   
     
-
+    // Sends the comment to redux
     function commentSave() {
         restaurant?.map(restaurant => dispatch(saveComment({comment, restaurant})))
     }
