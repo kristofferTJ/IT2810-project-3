@@ -137,6 +137,15 @@ Enhetstestene vi har laget er for MainPage, StartPage, og Reviews.
 
 ![Enhetstester](unit-testing.PNG "Enhetstesting")
 
+**Hvordan kjøre testene**
+
+For å kjøre testene må du først kjøre både backend og frontend. Hvordan du gjør dette er beskrevet lengre opp.
+
+Deretter skriver du i terminalen: 
+
+    cd client
+    npm test
+
 
 ## Automatisert end-to-end testing
 
