@@ -135,6 +135,8 @@ I tillegg har vi forsøkt å teste at man får forventet output når man sender 
 Resten av komponentene har vi testet oppførselen til med end-to-end testing i cypress, og har derfor valgt å ikke prioritere tid til å teste dette igjen med enhetstester. 
 Enhetstestene vi har laget er for MainPage, StartPage, og Reviews. 
 
+![Enhetstester](unit-testing.PNG "Enhetstesting")
+
 
 ## Automatisert end-to-end testing
 
@@ -146,7 +148,7 @@ end-to-end test som tester hovedsiden vår, mainPage. Denne sjekker at alle komp
 knapper for sortering og filtrering med riktig navn. 
 
 
-![End-to-End tester](./end-to-end-testing.PNG "End-to-End testing"")
+![End to End testing](end-to-end-testing.PNG "End-to-End testing")
 
 
 
