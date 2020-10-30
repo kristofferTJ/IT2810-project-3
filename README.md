@@ -1,16 +1,38 @@
 # Introduksjon
 
 
-
-
-
 # Hvordan kjøre prosjektet
 
 ## Klone prosjektet
 
+Åpne et tomt prosjekt i programmet du ønsker å kjøre prosjektet fra (F.eks. Visual Studio Code)
+
+Åpne en terminal i denne mappen og skriv:
+
+    git clone https://gitlab.stud.idi.ntnu.no/it2810-h20/team-41/prosjekt-3.git
+    cd prosjekt-3
+
+
+
+Nå må du kjøre både frontend og backend i hver sin terminal for å starte prosjektet
+
+NB: For å kjøre prosjektet må du være koblet til NTNU nettet (evt. via vpn)    
+
 ## Kjøre Frontend
 
+    cd client
+    npm install
+    npm start
+
 ## Kjøre Backend
+
+    cd backend
+    npm install
+    nodemon server
+
+Du kan nå åpne prosjektet på:
+
+http://localhost:3000/
 
 # Funksjonalitet
 
