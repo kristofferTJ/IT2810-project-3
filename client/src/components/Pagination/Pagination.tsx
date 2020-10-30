@@ -14,10 +14,15 @@ export default function Pagination() {
     let counterList: number[] = [];
     let pageNumber: number = 0;
 
+    //Legger til alle sidetallene i en liste som kan itereres gjnnom
+
     for (let i=0; i<counter; i++){
         counterList.push(pageNumber)
         pageNumber += 1;
     }
+
+    //Genererer riktig antall "pagination-knapper" etter antall sider
+    //Gjør så det ikke er mulig å trykke seg videre med pilene når man er på første og siste side
 
     return(
         <ul className="pagination">

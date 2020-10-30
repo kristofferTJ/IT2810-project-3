@@ -10,29 +10,26 @@ interface PaginationInterface{
 const PaginationButton: React.FC <PaginationInterface> = ({skipNumber, pageNumber}) => {
 
     const dispatch = useDispatch();
-
     const [active, setActive] = useState(false);
 
     const handleClick = (skipNumber: number) => {
-        
-        dispatch(updateSkip(skipNumber))
-        
+        dispatch(updateSkip(skipNumber))  
     }
     const skip = useSelector((state: any) => state.skip)
 
+    //Knappene blir satt til active når man er på sidetallet som tilsvarer knappene
 
     useEffect(() => {
-
         const checkSkipNumber=() =>{
             (skip == skipNumber) ? setActive(true) : setActive(false)
         }
 
         checkSkipNumber();
-
-        console.log(skip, skipNumber)
  
     }, [skip])
 
+    //Knappene blir gule når de er satt til active
+    
     return (
         <li className={active ? "active #ffc107 amber" : "waves-effect"} onClick={() => handleClick(skipNumber)}><a>{pageNumber}</a></li>
     )

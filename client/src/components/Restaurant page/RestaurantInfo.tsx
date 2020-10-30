@@ -26,12 +26,14 @@ function RestaurantInfo() {
 
    let image_path: string = 'Default';  
 
+   //Legger inn navn på restaurantbildene
    const restaurantnames: string[] = [
      "American", "Asian", "Classic cuisine", "Contemporary", 
      "Creative", "European contemporary", "Indian", "Italian", "Japanese",
      "Korean", "Market cuisine", "Modern cuisine", "Vegetarian"
    ]
 
+   //Henter ut bildet som matcher cuisinen til restauranten, setter deaultbilde hvis det ikke finnes
    restaurant?.map((restaurant: IRestaurant) => {
       restaurantnames.map((name: string) => (
         image_path==="Default" ? (name===restaurant.cuisine ? image_path=name : "") : ""

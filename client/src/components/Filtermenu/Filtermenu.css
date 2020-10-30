@@ -1,8 +1,9 @@
+
+/* gir filtermenyen en fin avstand til kanten og passe bredde */
+
 .filtermenu{
-    display: flex;
-    flex-direction: column;
     width: 200px;
     margin: 20px;
-}
+} 
 
 
