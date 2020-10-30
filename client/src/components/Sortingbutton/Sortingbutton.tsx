@@ -9,14 +9,6 @@ function Sortingbutton() {
 
     useEffect(() => {
         const dropdown = () => {
-            var elems = document.querySelectorAll('.dropdown-trigger');
-            var instances = M.Dropdown.init(elems, {});    
-    }
-        dropdown();
-    }, [])
-
-    useEffect(() => {
-        const dropdown = () => {
             var elems = document.querySelectorAll('select');
         var instances = M.FormSelect.init(elems, {});
     }

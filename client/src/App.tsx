@@ -7,6 +7,7 @@ import './App.css';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRestaurants } from "./store/ducks/restaurantDuck";
 import { stateType } from "./components/RestaurantList/Restaurants";
+import { updateCounter } from "./store/ducks/counterDuck";
 
 
 function App() {

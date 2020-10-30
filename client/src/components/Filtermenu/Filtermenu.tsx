@@ -10,14 +10,6 @@ import { updatePriceFilter } from '../../store/ducks/priceFilterDuck';
 export default function Filtermenu() {
 
     useEffect(() => {
-        const dropdown = () => {
-            var elems = document.querySelectorAll('.dropdown-trigger');
-            var instances = M.Dropdown.init(elems, {});    
-    }
-        dropdown();
-    }, [])
-
-    useEffect(() => {
         const open = () => {
             var elems = document.querySelectorAll('.collapsible.expandable');
             var instances = M.Collapsible.init(elems, {accordion: false});;   
@@ -27,7 +19,6 @@ export default function Filtermenu() {
     }, [])
 
     const dispatch = useDispatch();
-
 
     return(
         <div className="filtermenu">
