@@ -23,3 +23,4 @@ describe('Search', () => {
         .should('length', 1);
     });
 });
+

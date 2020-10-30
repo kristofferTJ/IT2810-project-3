@@ -29,7 +29,6 @@ function Restaurants() {
     const search = useSelector((state: stateType)  => state.search)
     const sortBy = useSelector((state: stateType)  => state.sorting)
     const skip = useSelector((state: stateType) => state.skip)
-    const counter = useSelector((state: stateType) => state.counter)
 
     useEffect(() => {
         dispatch(

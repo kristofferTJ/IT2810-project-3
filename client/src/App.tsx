@@ -6,21 +6,18 @@ import StartPage from "./Pages/StartPage";
 import './App.css';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRestaurants } from "./store/ducks/restaurantDuck";
-import history from './history';
-import LoginPage from "./Pages/LoginPage";
-
+import { stateType } from "./components/RestaurantList/Restaurants";
 
 
 function App() {
   
   const dispatch = useDispatch()
-  const restaurant = useSelector((state: any)  => state.restaurant)
-  const regionFilter = useSelector((state: any)  => state.regionFilter)
-  const cuisineFilter = useSelector((state: any)  => state.cuisineFilter)
-  const priceFilter = useSelector((state: any)  => state.priceFilter)
-  const search = useSelector((state: any)  => state.search)
-  const sortBy = useSelector((state: any)  => state.sorting)
-  const skip = useSelector((state: any) => state.skip)
+  const regionFilter = useSelector((state: stateType)  => state.regionFilter)
+  const cuisineFilter = useSelector((state: stateType)  => state.cuisineFilter)
+  const priceFilter = useSelector((state: stateType)  => state.priceFilter)
+  const search = useSelector((state: stateType)  => state.search)
+  const sortBy = useSelector((state: stateType)  => state.sorting)
+  const skip = useSelector((state: stateType) => state.skip)
  
   useEffect(() => {
     dispatch(
@@ -29,13 +26,11 @@ function App() {
 }, [fetchRestaurants, regionFilter, cuisineFilter, priceFilter, search, sortBy, skip])
 
   return (
-    // <Router history={history}>
     <Router>
         <Switch>
         <Route exact path="/Restaurants" component={MainPage}></Route>
         <Route exact path="/" component={StartPage}></Route>
         <Route exact path="/restaurant/:name" component={RestaurantPage}></Route>
-        <Route exact path="/login" component={LoginPage}></Route>
       </Switch>
     </Router>
   );

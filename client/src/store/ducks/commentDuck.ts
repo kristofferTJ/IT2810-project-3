@@ -31,15 +31,6 @@ export default function commentReducer(state: string = '', action: commentAction
   }
 }
 
-// Action creator
-// export function comment(comment: string = '', restaurant: IRestaurant) {
-//   return {
-//     type: UPDATE_COMMENT,
-//     payload: comment
-//   };
-// }
-
-
 export const saveComment = ({comment, restaurant}: commentType) => async (dispatch: Function) => {
     const config = {
         headers: {
@@ -57,7 +48,7 @@ export const saveComment = ({comment, restaurant}: commentType) => async (dispat
             payload: response
         })
     } catch(error) {
-        console.log("Dette gikk dårlig")
+        console.log("Kunne ikke lagre kommentar")
 
     }
 }

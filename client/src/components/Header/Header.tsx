@@ -1,5 +1,4 @@
 import React from 'react';
-import './Header.css';
 import history from "../../history";
 
 export default function Header() {

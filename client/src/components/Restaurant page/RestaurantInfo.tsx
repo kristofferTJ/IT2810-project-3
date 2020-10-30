@@ -3,8 +3,6 @@ import "./RestaurantInfo.css";
 import { IRestaurant } from "../../../../backend/models/Restaurant";
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
-import history from '../../history';
-import { breakStatement, isBreakStatement } from "@babel/types";
 
 interface IParams {
   name: string;
@@ -26,25 +24,20 @@ function RestaurantInfo() {
   }, [])
 
 
-
    let image_path: string = 'Default';  
-
-  //   try {  
-  //       image_path = require('../../images/'+restaurant.cuisine+'.jpg') 
-     
-  //     }
-  //   catch(err){  
-  //      image_path = require('../../images/Default.jpg');  //set default image path
-  //  }
 
    const restaurantnames: string[] = [
      "American", "Asian", "Classic cuisine", "Contemporary", 
      "Creative", "European contemporary", "Indian", "Italian", "Japanese",
      "Korean", "Market cuisine", "Modern cuisine", "Vegetarian"
    ]
-   
-  //  onClick={() => history.push('/restaurants')}
 
+   restaurant?.map((restaurant: IRestaurant) => {
+      restaurantnames.map((name: string) => (
+        image_path==="Default" ? (name===restaurant.cuisine ? image_path=name : "") : ""
+       ))
+   })
+   
   return (
     <div>
         <div className="section">
@@ -55,9 +48,6 @@ function RestaurantInfo() {
                 <div className="restaurantcontainer">
                 <div className="restaurantbox"> 
                   <div className="restaurant-image">
-                    {restaurantnames.map((name: string) => (
-                      image_path==="Default" ? (name===restaurant.cuisine ? image_path=name : "") : ""
-                    ))}
                   <img src={require('../../images/'+image_path+'.jpg')}
                       alt="Italian"
                       width="250" 
@@ -80,7 +70,6 @@ function RestaurantInfo() {
                         <a href={restaurant!.url}>Visit website</a>
                       </div>
                     </div>
-                      
                 </div>    
           ))}
           {restaurant?.length===0 ? <h2>ERROR: Can not fecth restaurant from database</h2> : ""}

@@ -6,7 +6,6 @@ import regionFilterDuck from './ducks/regionFilterDuck';
 import searchDuck from './ducks/searchDuck';
 import sortingDuck from './ducks/sortingDuck';
 import skipReducer from './ducks/skipDuck';
-import loginReducer from './ducks/loginDuck';
 import commentReducer from './ducks/commentDuck';
 import counterReducer from './ducks/counterDuck';
 
@@ -18,7 +17,6 @@ const rootReducer = combineReducers({
     search: searchDuck,
     sorting: sortingDuck,
     skip: skipReducer,
-    login: loginReducer,
     comment: commentReducer,
     counter: counterReducer
 });
