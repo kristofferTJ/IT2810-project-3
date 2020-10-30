@@ -6,6 +6,8 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "@types/enzyme": "^3.10.8",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/jest": "^24.9.1",
     "@types/materialize-css": "^1.0.8",
     "@types/node": "^12.12.62",
@@ -56,6 +58,10 @@
     "@babel/code-frame": "^7.10.4",
     "@types/jquery": "^3.5.3",
     "@types/uuid": "^8.3.0",
-    "cypress": "^5.5.0"
+    "cypress": "^5.5.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
+    "enzyme-to-json": "^3.6.1",
+    "jest": "^26.6.1"
   }
 }
