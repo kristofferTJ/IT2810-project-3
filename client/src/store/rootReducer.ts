@@ -8,6 +8,7 @@ import sortingDuck from './ducks/sortingDuck';
 import skipReducer from './ducks/skipDuck';
 import loginReducer from './ducks/loginDuck';
 import commentReducer from './ducks/commentDuck';
+import counterReducer from './ducks/counterDuck';
 
 const rootReducer = combineReducers({
     restaurant: restaurantDuck,
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
     sorting: sortingDuck,
     skip: skipReducer,
     login: loginReducer,
-    comment: commentReducer
+    comment: commentReducer,
+    counter: counterReducer
 });
 
 export default rootReducer;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./RestaurantInfo.css";
 import { IRestaurant } from "../../../../backend/models/Restaurant";
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import history from '../../history';
 import { breakStatement, isBreakStatement } from "@babel/types";
@@ -43,11 +43,12 @@ function RestaurantInfo() {
      "Korean", "Market cuisine", "Modern cuisine", "Vegetarian"
    ]
    
+  //  onClick={() => history.push('/restaurants')}
 
   return (
     <div>
         <div className="section">
-        <a id="navigate-button" onClick={() => history.push('/restaurants')}><i className="material-icons medium left">navigate_before</i></a>
+        <a><i className="material-icons medium left"><Link to="/restaurants">navigate_before</Link></i></a>
           {restaurant?.map((restaurant: IRestaurant) => (
             <div className="container">
                 <h3 className="center">{restaurant!.name}</h3>
