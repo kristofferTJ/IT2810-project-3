@@ -8,16 +8,6 @@ export type RestaurantAction = {
   payload: IRestaurant[];
 };
 
-// type fetchRestaurantType = {
-//   skip: number,
-//   regionFilter: string[],
-//   cuisineFilter: string[],
-//   priceFilter: string[],
-//   search: string,
-//   sortBy: string,
-//   ascending: boolean
-// }
-
 // Actions
 
 const GET_RESTAURANTS_SUCCESS = 'GET_RESTAURANTS_SUCCESS';
