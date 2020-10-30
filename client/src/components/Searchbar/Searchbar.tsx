@@ -7,6 +7,7 @@ function Searchbar() {
 
     const dispatch = useDispatch();
 
+    // Updates the search state 
     function changeText(text: string) {
         dispatch(updateSearch(text))
     }

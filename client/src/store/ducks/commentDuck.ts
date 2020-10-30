@@ -37,7 +37,6 @@ export const saveComment = ({comment, restaurant}: commentType) => async (dispat
             'Content-Type' : 'application/json'
         }
     }
-    console.log(comment)
     const body = JSON.stringify({comment})
 
     try {

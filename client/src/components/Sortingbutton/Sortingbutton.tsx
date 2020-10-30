@@ -5,7 +5,6 @@ import './Sortingbutton.css';
 
 function Sortingbutton() {
 
-    
     const dispatch = useDispatch();
 
     //Function for dropdown in sortingbutton
@@ -17,7 +16,11 @@ function Sortingbutton() {
         dropdown();
     }, [])
 
+<<<<<<< HEAD
     //Gets value to sort on
+=======
+    // Updates the sortBy state
+>>>>>>> f46f841d040f5e8ae46dbdd40dba11f942e7e2aa
     function updateSortingbutton(value: string){
         let ascending: boolean;
         value === "name" ? ascending=true : ascending=false;
@@ -33,7 +36,6 @@ function Sortingbutton() {
             <option value="price">Price</option>
             <option value="stars">Stars</option>
             <option value="name">Name</option>
-
             </select>
             <label>Sort on</label>
         </div>

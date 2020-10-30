@@ -7,6 +7,8 @@ import { RestaurantObject } from './RestaurantObject';
 import { sortingType } from '../../store/ducks/sortingDuck';
 import { updateCounter } from '../../store/ducks/counterDuck';
 
+
+// Types for all the redux states 
 export type stateType = {
     restaurant: IRestaurant[],
     regionFilter: string[],
@@ -20,8 +22,9 @@ export type stateType = {
 
 function Restaurants() {
 
-
     const dispatch = useDispatch()
+
+    // Gets all the states from redux that is needed for fetching the restaurants
     const restaurant = useSelector((state: stateType)  => state.restaurant)
     const regionFilter = useSelector((state: stateType)  => state.regionFilter)
     const priceFilter = useSelector((state: stateType)  => state.priceFilter)
@@ -30,13 +33,15 @@ function Restaurants() {
     const sortBy = useSelector((state: stateType)  => state.sorting)
     const skip = useSelector((state: stateType) => state.skip)
 
+
+    // Gets the correct restaurants 
     useEffect(() => {
         dispatch(
             fetchRestaurants(skip, regionFilter, cuisineFilter, priceFilter , search, sortBy.sortBy, sortBy.ascending)
         );
     }, [fetchRestaurants, regionFilter, cuisineFilter, priceFilter, search, sortBy, skip])
 
-    
+    // Gets the number of pages needed to show all the restaurants that matches the filters and search
     useEffect(() => {
         dispatch(
             updateCounter(regionFilter, cuisineFilter, priceFilter, search)
