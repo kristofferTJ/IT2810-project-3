@@ -1,5 +1,10 @@
 # Introduksjon
-
+Michelindatabase er en side for å søke i alle restaurantene som fikk michelin stjerne i 2019. 
+Det er mulighet for å filtrere på et utvalg regioner, de mest kjente mat-kategoriene, og prisklasse. 
+I tillegg kan man sortere på navn (A-W), pris fra billigst til dyrest, og antall stjerner. 
+Det er kun 20 restauranter som vises om gangen, resten kan man se ved å bla i sidene. 
+For å se mer informasjon om restauranten kan man klikke på restaurant-navnet til restauranten. 
+Man kommer da til restaurantens side der man kan se mer informasjon om restauranten, og har mulighet til å legge ved kommentarer til hver restaurant. 
 
 # Hvordan kjøre prosjektet
 
@@ -37,6 +42,10 @@ http://localhost:3000/
 # Funksjonalitet
 
 # Frontend/design
+Vi har brukt Materialize CSS til styling av nettsiden som er et responsivt CSS bibliotek. 
+Etter å ha testet tre forskjellige tredjeparts komponenter for styling av nettsiden, valgte vi Materialize CSS fordi det var enkelt å bruke, hadde elegant design, og fungerte godt for responsivt design. 
+I tillegg har vi brukt flex-box og media queries på et par komponenter for å gjøre de mer responsive. 
+Det er ikke laget en egen løsning for mobil da det ikke var krav for dette prosjektet og ville krevd ny løsning for filtermenyen.
 
 # Teknologier
 
@@ -121,8 +130,11 @@ Mongoose er i tillegg en fantastisk nyttig modul fra Node som gjør det enkelt l
 # Testing
 
 ## Systematisk enhetstesting
+Vi har brukt Jest og enzym til systematisk enhetstesting for å teste at de viktigste komponentene i React applikasjonen vår skrives ut på riktig måte. 
+I tillegg har vi forsøkt å teste at man får forventet output når man sender mockdata inn i comment-komponenten. 
+Resten av komponentene har vi testet oppførselen til med end-to-end testing i cypress, og har derfor valgt å ikke prioritere tid til å teste dette igjen med enhetstester. 
+Enhetstestene vi har laget er for MainPage, StartPage, og Reviews. 
 
-**Hvordan kjøre testene**
 
 ## Automatisert end-to-end testing
 
